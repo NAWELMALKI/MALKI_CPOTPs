@@ -35,5 +35,22 @@ public class Joueur {
         if(ListeJetons[i]!= null){
                     return false ;
         }
-          
+    }
+    
+        void obtenirDesintegrateur(){
+            nombreDesintegrateurs ++ ;
+    }
+        
+        boolean utiliserDesintegrateur(){
+            nombreDesintegrateurs -- ;
+            
+            if(nombreDesintegrateurs<= 0){
+                return false ;
+            }
+                
+            }
+        
+    
+        
+        
 }   

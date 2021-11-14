@@ -23,11 +23,11 @@ public class Cellule {
     
     String lireCouleurduJeton(){
         if (jetonCourant == null){
-            System.out.println("vide");
+            return "vide";
             
         }
         if (jetonCourant!= null) {
-            return Coul
+            return jetonCourant.Couleur;
         }       
     
 
