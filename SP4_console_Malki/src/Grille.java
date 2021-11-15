@@ -15,10 +15,7 @@ public class Grille {
        
    } 
    
-  boolean ajouterJetonDansColonne(Jeton, int){
-      return CellulesJeu[]
-  }
-  
+ 
   boolean etreRemplie(){
       
       if (CellulesJeu != null){
@@ -69,9 +66,11 @@ boolean supprimerJeton(int x,int y){
         }        
     
 
-boolean recupererJeton(int x,int y){
-
-    CellulesJeu[x][y]
+Jeton recupererJeton(int x,int y){
+    Jeton recupjeton ;
+    recupjeton =CellulesJeu[x][y].recupererJeton() ;
+    CellulesJeu[x][y].recupererJeton() = null ;
+    return recupjeton ;
 }
 
 boolean placerTrouNoir(int x, int y){
