@@ -16,7 +16,7 @@ public class Grille {
    } 
    
   boolean ajouterJetonDansColonne(Jeton, int){
-      
+      return CellulesJeu[]
   }
   
   boolean etreRemplie(){
@@ -40,39 +40,58 @@ public class Grille {
 }
   
 String lireCouleurDuJeton(int x, int y){
-        for ( x=0 ; x<CellulesJeu.length ; x++) {
-           
-            for ( y=0 ; y<CellulesJeu.length ; y++) {
-               return CellulesJeu[x][y].lireCouleurduJeton();
-            }
-        }
+       
+        return CellulesJeu[x][y].lireCouleurduJeton();
+            
+        
 }
 
-boolean colonneRemplie(int x){
-   for ( x=0 ; x<CellulesJeu.length -1 ; x++) {
-       if (CellulesJeu[x]!= null){
+boolean colonneRemplie(int y){
+   for ( y=0 ; y<CellulesJeu.length -1 ; y++) {
+       if (CellulesJeu[y]!= null){
            return true ;
        }
    }
 }
 
 boolean supprimerJeton(int x,int y){
-    // for ( x=0 ; x<CellulesJeu.length ; x++) {
-           
-       // for ( y=0 ; y<CellulesJeu.length ; y++) {
-                CellulesJeu[x][y]= null ;
             
                 if (CellulesJeu[x][y]== null){
-                    return true ;    
-            
+                    return false ;    
+                }    
                 if (CellulesJeu[x][y]!= null){
-                    return false ; 
+                    CellulesJeu[x][y]= null ;
+                
+                    return true ; 
                 }    
         
-            }   
+               
         }        
     
 
 boolean recupererJeton(int x,int y){
 
+    CellulesJeu[x][y]
+}
+
+boolean placerTrouNoir(int x, int y){
+    
+    if(CellulesJeu[x][y].placerTrouNoir()== true ){
+        return true ;
+    }
+    else{
+        return false ;
+    }
+}
+
+boolean placerDesintegrateur(int x , int y ){
+    
+    if(CellulesJeu[x][y].placerDesintegrateur()== true ){
+        return true ;
+    }
+    else{
+        return false ;
+    }
+    
+    
 }

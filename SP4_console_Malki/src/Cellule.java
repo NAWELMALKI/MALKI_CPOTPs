@@ -38,31 +38,83 @@ public class Cellule {
     }
     
     boolean  supprimerJeton(){
-        jetonCourant= null;
+        
         
         if (jetonCourant== null){
-            return true ;
+            return false ;
         }
         
         if(jetonCourant!= null){
+            jetonCourant= null;
             return false ;
         }
+    }   
     
-    }    
         boolean  presenceTrouNoir(){
-        if(trouNoir!= null){
+        if(trouNoir== true){
             return true ;
+        }
+        else{
+            return false ;
         }
     }
    
      boolean presenceDesintegrateur(){
-        if(desintegrateur!= null){
+        if(desintegrateur==true){
             return true ;
-        } 
+        }
+        else{
+            return false ;
+        }
      }   
      
-     boolean placerTrouNoir(){
+     boolean  placerDesintegrateur(){
+              
+         if (desintegrateur== true){
+             return false ;
+         }
          
+         if(desintegrateur== false){
+             desintegrateur=true ;
+             return true ;
+         }
+             
      }
     
+     boolean placerTrouNoir(){
+         
+         if (trouNoir== true){
+             return false ;
+         }
+         
+         if(trouNoir== false){
+             trouNoir=true ;
+             return true ;
+         }
+        
+         
+         
+     }
+     
+     boolean recupererDesintegrateur(){
+         
+         if(desintegrateur == true ){
+             desintegrateur=false ;
+             return true ;
+         }
+         else{
+             return false ;
+         }
+     }
+     boolean activerTrouNoir(){
+         if(trouNoir==true){
+            jetonCourant= null;
+            return true ;
+            
+         }
+         else{
+             return false;
+         }
+     }
+     
 }
