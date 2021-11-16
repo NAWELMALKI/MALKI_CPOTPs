@@ -12,16 +12,32 @@ public class Cellule {
     Jeton jetonCourant ;
     boolean trouNoir ;
     boolean desintegrateur ;
-    
+
     Cellule(){
        jetonCourant= null; 
     }
-    
-    boolean affecterJeton(Jeton){
        
+   
+
+    public boolean affecterJeton(Jeton entree) {
+
+        if (jetonCourant == null) {
+
+            jetonCourant = entree;
+
+            return true;
+
+        }
+
+            else {
+
+                 return false;  
+
+                    }
+
     }
     
-    String lireCouleurduJeton(){
+    public String lireCouleurDuJeton(){
         if (jetonCourant == null){
             return "vide";
             
@@ -31,13 +47,13 @@ public class Cellule {
         }           
     }
     
-    Jeton recupererJeton(){
+    public Jeton recupererJeton(){
         
         return jetonCourant ;
         
     }
     
-    boolean  supprimerJeton(){
+   public boolean  supprimerJeton(){
         
         
         if (jetonCourant== null){
@@ -50,7 +66,7 @@ public class Cellule {
         }
     }   
     
-        boolean  presenceTrouNoir(){
+    public    boolean  presenceTrouNoir(){
         if(trouNoir== true){
             return true ;
         }
@@ -59,7 +75,7 @@ public class Cellule {
         }
     }
    
-     boolean presenceDesintegrateur(){
+    public boolean presenceDesintegrateur(){
         if(desintegrateur==true){
             return true ;
         }
@@ -68,7 +84,7 @@ public class Cellule {
         }
      }   
      
-     boolean  placerDesintegrateur(){
+    public boolean  placerDesintegrateur(){
               
          if (desintegrateur== true){
              return false ;
@@ -81,7 +97,7 @@ public class Cellule {
              
      }
     
-     boolean placerTrouNoir(){
+    public boolean placerTrouNoir(){
          
          if (trouNoir== true){
              return false ;
@@ -92,11 +108,11 @@ public class Cellule {
              return true ;
          }
         
-         
-         
-     }
+    }     
      
-     boolean recupererDesintegrateur(){
+     
+     
+    public boolean recupererDesintegrateur(){
          
          if(desintegrateur == true ){
              desintegrateur=false ;
@@ -106,7 +122,7 @@ public class Cellule {
              return false ;
          }
      }
-     boolean activerTrouNoir(){
+    public boolean activerTrouNoir(){
          if(trouNoir==true){
             jetonCourant= null;
             return true ;
