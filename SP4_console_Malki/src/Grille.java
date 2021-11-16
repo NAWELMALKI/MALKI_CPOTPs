@@ -16,34 +16,40 @@ public class Grille {
    } 
    
  
-  boolean etreRemplie(){
+public boolean etreRemplie(){
       
       if (CellulesJeu != null){
           return true ;
       }
   }
   
-  void viderGrille(){
+  public void viderGrille(){
       CellulesJeu = null ;
   }
-  boolean celluleOccupee(int x, int y){
-    for ( x=0 ; x<CellulesJeu.length ; x++) {
-        for ( y=0 ; y<CellulesJeu.length ; y++) {
-            if (null !=CellulesJeu[x][y] ){
-                return true ;
-            }
+  public boolean celluleOccupee(int ligne, int colonne){
+
+        if (CellulesJeu[ligne][colonne] != null){
+
+            return true;
+
         }
+
+        else {
+
+            return false;
+
+        }
+
     }
-}
   
-String lireCouleurDuJeton(int x, int y){
+public String lireCouleurDuJeton(int x, int y){
        
         return CellulesJeu[x][y].lireCouleurduJeton();
             
         
 }
 
-boolean colonneRemplie(int y){
+public boolean colonneRemplie(int y){
    for ( y=0 ; y<CellulesJeu.length -1 ; y++) {
        if (CellulesJeu[y]!= null){
            return true ;
@@ -51,7 +57,7 @@ boolean colonneRemplie(int y){
    }
 }
 
-boolean supprimerJeton(int x,int y){
+public boolean supprimerJeton(int x,int y){
             
                 if (CellulesJeu[x][y]== null){
                     return false ;    
@@ -66,14 +72,14 @@ boolean supprimerJeton(int x,int y){
         }        
     
 
-Jeton recupererJeton(int x,int y){
+public Jeton recupererJeton(int x,int y){
     Jeton recupjeton ;
     recupjeton =CellulesJeu[x][y].recupererJeton() ;
-    CellulesJeu[x][y].recupererJeton() = null ;
+    CellulesJeu[x][y].supprimerJeton() ;
     return recupjeton ;
 }
 
-boolean placerTrouNoir(int x, int y){
+public boolean placerTrouNoir(int x, int y){
     
     if(CellulesJeu[x][y].placerTrouNoir()== true ){
         return true ;
@@ -83,7 +89,7 @@ boolean placerTrouNoir(int x, int y){
     }
 }
 
-boolean placerDesintegrateur(int x , int y ){
+ public boolean placerDesintegrateur(int x , int y ){
     
     if(CellulesJeu[x][y].placerDesintegrateur()== true ){
         return true ;
@@ -92,5 +98,28 @@ boolean placerDesintegrateur(int x , int y ){
         return false ;
     }
     
-    
+}
+
+    public boolean ajouterJetonDansColonne(Jeton jetonJoueur, int colonne){
+
+        int i = 0;
+
+        while (CellulesJeu[i][colonne] == null){
+
+                i +=1;
+
+                if (i > 6) {
+
+                    return false;
+
+                }
+
+            }
+
+        CellulesJeu[i][colonne].affecterJeton(jetonJoueur);
+
+            return true;
+
+    }
+
 }
