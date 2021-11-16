@@ -9,5 +9,27 @@
  * @author saidm
  */
 public class Partie {
+    Joueur [] ListeJoueurs = new Joueur [2] ;
+    Joueur joueurCourant ;
+    Grille grilleJeu ;
     
+    Partie(Joueur,Joueur){
+        
+    }
+    
+    void initialiserPartie(){
+        
+    }
+    
+    void debuterPartie(){
+        
+    }
+    
+    void attribuerCouleursAuxJoueurs(){
+            
+        joueurCourant.affecterCouleur(); 
+        
+        
+        
+    }
 }

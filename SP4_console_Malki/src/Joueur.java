@@ -22,34 +22,50 @@ public class Joueur {
         Couleur = couleurjoueur ;
         
     } 
-    boolean ajouterJeton(Jeton j ){
-        
-        for ( int i=0 ; i<ListeJetons.length -1 ; i++){
-            if( ListeJetons[i] == null) {
-                ListeJetons[i] = j ;
-                nombreJetonsRestants = nombreJetonsRestants + 1 ; 
-                return true ;
-            }  
+ 
+  public boolean ajouterJeton (Jeton jetonJ){
+
+        int i =0;
+
+        while (ListeJetons[i] != null){
+
+            i = i+1;
+
+            if (i == 20){
+
+                return false;
+
+            }
+
         }
-  
-        if(ListeJetons[i]!= null){
-                    return false ;
-        }
+
+        ListeJetons[i] = jetonJ ;
+
+        nombreJetonsRestants =+ 1 ;
+
+        return true;
+
     }
+
     
-        void obtenirDesintegrateur(){
+    
+    public void obtenirDesintegrateur(){
             nombreDesintegrateurs ++ ;
     }
         
-        boolean utiliserDesintegrateur(){ 
+    public  boolean utiliserDesintegrateur(){ 
             if(nombreDesintegrateurs == 0){
                 return false ;
             }
-             nombreDesintegrateurs -- ; 
-             return true;
+            
+            if(nombreDesintegrateurs != 0){ 
+                nombreDesintegrateurs -- ; 
+                return true;
             }
         
     
         
         
 }   
+
+}
