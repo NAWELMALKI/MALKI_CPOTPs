@@ -20,9 +20,14 @@ public class SP4_console_Malki_Thibault {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Grille grll = new Grille();
-        grll.Grille()
-        
+       Jeton j = new Jeton("Rouge") ;
+       s.o.p (j.lireCouleur());
+       
+       cellule c =new Cellule();
+       s.o.p(c.lireCouleurduJeton());
+       c.affecterJeton(j);
+       s.o.p(C.lireCouleurduJeton());
+       grille G = new Grile();
         
         
     }
