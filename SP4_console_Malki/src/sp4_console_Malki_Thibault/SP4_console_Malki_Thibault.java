@@ -12,7 +12,7 @@ package sp4_console_Malki_Thibault;
  */
 
 
-public class SP4_console_Malki {
+public class SP4_console_Malki_Thibault {
 
     /**
      * @param args the command line arguments
