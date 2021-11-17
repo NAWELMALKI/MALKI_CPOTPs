@@ -61,7 +61,7 @@ public class Joueur {
                 return false ;
             }
             
-            if(nombreDesintegrateurs != 0){ 
+            else{ 
                 nombreDesintegrateurs -- ; 
                 return true;
             }

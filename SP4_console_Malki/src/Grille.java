@@ -13,7 +13,11 @@ public class Grille {
    Cellule[][] CellulesJeu = new Cellule[6][7] ;
     
     Grille(){
-       
+       for (int i=0; i<6 ; i++){
+           for( int j=0 ; j<7 ; j++){
+               CellulesJeu[i][j]= new Cellule();
+           }
+       }
    } 
    
  
@@ -22,7 +26,10 @@ public boolean etreRemplie(){
       if (CellulesJeu != null){
           return true ;
       }
-}
+      else {
+          return false;
+      }
+    }
   
   public void viderGrille(){
       CellulesJeu = null ;
@@ -56,6 +63,7 @@ public boolean colonneRemplie(int colonne){
            return true ;
        }
    }
+   return false;
 }
 
  public boolean etreGagnantePourJoueur(Joueur Jgagnant){
@@ -259,7 +267,7 @@ public boolean colonneRemplie(int colonne){
                     if (CellulesJeu[ligne][colonne]== null){
                         return false ;    
                     }    
-                    if (CellulesJeu[ligne][colonne]!= null){
+                    else{
                         CellulesJeu[ligne][colonne]= null ;
 
                         return true ; 
@@ -319,4 +327,34 @@ public boolean placerTrouNoir(int ligne, int colonne){
 
     }
 
+     public void afficherGrilleSurConsole(){
+         for( int i= 0; i<6 ; i++){
+             for(int j=0 ; j<7 ; j++ ){
+                 if( CellulesJeu[i][j].jetonCourant != null){
+                     if( CellulesJeu[i][j].lireCouleurDuJeton() =="Rouge"){
+                         System.out.print("R");
+                     }
+                    if( CellulesJeu[i][j].lireCouleurDuJeton() =="Jaune"){
+                         System.out.print("J");
+                     }
+                 } 
+                    
+                if ( CellulesJeu[i][j].trouNoir == true){
+                         System.out.print("#") ;
+                 }
+                
+                else{
+                    
+                }
+                 
+                 
+                 
+                 
+                 
+         }
+                 
+     
+     }
+    
+}
 }

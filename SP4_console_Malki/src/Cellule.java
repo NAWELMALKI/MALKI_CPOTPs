@@ -44,7 +44,7 @@ public class Cellule {
             return "vide";
             
         }
-        if (jetonCourant!= null) {
+        else {
             return jetonCourant.Couleur;
         }           
         // return null;
@@ -63,7 +63,7 @@ public class Cellule {
             return false ;
         }
         
-        if(jetonCourant!= null){
+        else{
             jetonCourant= null;
             return false ;
         }
@@ -93,7 +93,7 @@ public class Cellule {
              return false ;
          }
          
-         if(desintegrateur== false){
+         else{
              desintegrateur=true ;
              return true ;
          }
@@ -106,7 +106,7 @@ public class Cellule {
              return false ;
          }
          
-         if(trouNoir== false){
+         else{
              trouNoir=true ;
              return true ;
          }

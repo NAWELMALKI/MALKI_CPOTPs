@@ -7,13 +7,13 @@
 /**
  *MALKI
  * THIBAULT 
- * PUISSANCE 4
  * @author saidm
  */
+import java.util.Random ;
 public class Partie {
     Joueur [] ListeJoueurs = new Joueur [2] ;
     Joueur joueurCourant ;
-    Grille grilleJeu ;
+    Grille grilleJeu = null ;
     
     
     Partie(Joueur,Joueur){
@@ -30,10 +30,21 @@ public class Partie {
     }
     
     void attribuerCouleursAuxJoueurs(){
+         Random r = new Random()  ;
+         boolean couleur ;
+         couleur = r.nextBoolean();
             
-        joueurCourant.affecterCouleur(); 
+         if (couleur == true ){
+          ListeJoueurs[0].Couleur = "Rouge" ;
+          ListeJoueurs[1].Couleur = "Jaune" ;
+         }
+         else{
+          ListeJoueurs[1].Couleur = "Rouge" ;
+          ListeJoueurs[0].Couleur = "Jaune" ;  
+         }
         
         
         
     }
+
 }
