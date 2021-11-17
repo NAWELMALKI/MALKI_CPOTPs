@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sp4_console_malki;
+package sp4_console_Malki_Thibault;
 
 /**
- *
- * @author saidm
+ *Malki
+ *Thibault
+ * TP2 Puissance 4
  */
+
+
 public class SP4_console_Malki {
 
     /**
@@ -16,6 +19,10 @@ public class SP4_console_Malki {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Grille grll = new Grille();
+        grll.Grille()
+        
         
         
     }

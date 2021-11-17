@@ -5,7 +5,9 @@
  */
 
 /**
- *
+ *MALKI
+ * THIBAULT 
+ * PUISSANCE 4
  * @author saidm
  */
 public class Joueur {
@@ -18,7 +20,8 @@ public class Joueur {
     Joueur(String nomjoueur){
         Nom = nomjoueur ;
     }
-    void affecterCouleur(String couleurjoueur){
+  
+  public void affecterCouleur(String couleurjoueur){
         Couleur = couleurjoueur ;
         
     } 

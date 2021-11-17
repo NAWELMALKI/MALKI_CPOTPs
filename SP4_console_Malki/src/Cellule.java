@@ -5,7 +5,9 @@
  */
 
 /**
- *
+ *Malki
+ * Thibault
+ * TP2 PUISSANCE 4
  * @author saidm
  */
 public class Cellule {
@@ -45,6 +47,7 @@ public class Cellule {
         if (jetonCourant!= null) {
             return jetonCourant.Couleur;
         }           
+        // return null;
     }
     
     public Jeton recupererJeton(){

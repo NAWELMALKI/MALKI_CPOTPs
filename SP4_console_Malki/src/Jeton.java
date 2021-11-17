@@ -5,7 +5,9 @@
  */
 
 /**
- *
+ *Malki
+ * Thibault
+ * TP2 PUISSANCE 4
  * @author saidm
  */
 public class Jeton {
@@ -16,11 +18,11 @@ public class Jeton {
     
     // methodes :
     
-      Jeton (String a){
+     public Jeton (String a){
       Couleur = a;
       
     }
-     String lireCouleur(){
+    public String lireCouleur(){
        return Couleur ;  
      }
 }

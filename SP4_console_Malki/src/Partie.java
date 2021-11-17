@@ -5,7 +5,9 @@
  */
 
 /**
- *
+ *MALKI
+ * THIBAULT 
+ * PUISSANCE 4
  * @author saidm
  */
 public class Partie {
@@ -13,15 +15,17 @@ public class Partie {
     Joueur joueurCourant ;
     Grille grilleJeu ;
     
+    
     Partie(Joueur,Joueur){
         
     }
     
-    void initialiserPartie(){
+    public void initialiserPartie(){
         
     }
     
-    void debuterPartie(){
+    public void debuterPartie(){
+        
         
     }
     
