@@ -68,12 +68,38 @@ public class Partie {
         joueurCourant = ListeJoueurs[0];
         int i=0;
 
-        while ((grilleJeu.etreRemplie() == false) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!= true) &&  grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!= true) {
+        while ((grilleJeu.etreRemplie() == false) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!= true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!= true) {
 
             grilleJeu.afficherGrilleSurConsole();
-            System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2) Recuperer Jeton ; (3)Désintégrateur");
+            System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton ; (3)Désintégrateur");
             int coup = sc.nextInt();
 
+            
+            // PLACER DESINTEGRATEUR :
+            if (coup ==3 ){
+                System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
+                int x = sc.nextInt();
+                int y = sc.nextInt();
+                grilleJeu.placerDesintegrateur(x,y);// FAUX ca lajoute dans la grille
+                
+                if (joueurCourant.nombreDesintegrateurs == 0){
+                    System.out.println("ERREUR. Vous n'avez pas de désintegrateur... Veuillez jouer autre chose :");
+                    System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton");
+                    coup = sc.nextInt();
+                
+                }
+
+                else {
+                    while (grilleJeu.lireCouleurDuJeton(x, y) == joueurCourant.Couleur){
+                    System.out.println("ERREUR. Vous ne pouvez pas désintegrer votre jeton. \nDans quelle case voulez vous placer le désintégrateur ?");
+                    x = sc.nextInt();
+                    y = sc.nextInt();
+                    grilleJeu.placerDesintegrateur(x,y);
+                    }
+                }
+            }
+
+            
             // Ajouter Jeton Colonne:
             if (coup == 1){
                 Jeton j = joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants -1];
@@ -106,38 +132,21 @@ public class Partie {
                 int x = sc.nextInt();
                 int y = sc.nextInt(); 
 
-                while (grilleJeu.recupererJeton(x, y) != joueurCourant.ListeJetons[0]){
+                while (grilleJeu.lireCouleurDuJeton(x, y) != joueurCourant.Couleur){
                     System.out.println("ERREUR. Le jeton récupéré n'est pas le votre ou case vide. \nDans quelle case voulez vous recuperer le jeton ?");
                     x = sc.nextInt();
                     y = sc.nextInt();
-                    grilleJeu.placerDesintegrateur(x,y);
                 }
                 
-                grilleJeu.tasserGrille(y);
-
                 //Rajoute le jeton récupéré dans la listeJeton :
+                Jeton jTEMP = grilleJeu.CellulesJeu[x][y].recupererJeton();
+                joueurCourant.ajouterJeton(jTEMP);
                 
-    
+                // on tasse la colonne dans laquelle on a récupéré le jeton
+                grilleJeu.tasserGrille(y);
+            }           
 
-            }
-
-               
-
-            // PLACER DESINTEGRATEUR :
-            if (coup ==3 ){
-                System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
-                int x = sc.nextInt();
-                int y = sc.nextInt();
-                grilleJeu.placerDesintegrateur(x,y);
-
-                while (grilleJeu.placerDesintegrateur(x,y) == false){
-                    System.out.println("ERREUR. Désintégrateur déja présent ou case vide. \nDans quelle case voulez vous placer le désintégrateur ?");
-                    x = sc.nextInt();
-                    y = sc.nextInt();
-                    grilleJeu.placerDesintegrateur(x,y);
-                }
-            }  
-
+            
             //CHANGEMENT DE JOUEUR :
             if (joueurCourant == ListeJoueurs[1]){
                 joueurCourant = ListeJoueurs[0];
@@ -151,8 +160,21 @@ public class Partie {
         
         // On est sorti de la boucle == il y a un gagnant !
         // DÉTERMINATION DU GAGNANT :
-        if 
-          
+        if ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])== true) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])== true)){
+            System.out.println( joueurCourant + "à gagné !");  
+        }
+        
+        else if ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])== true) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!= true)) {
+            System.out.println(ListeJoueurs[0] + "à gagné !"); 
+        }
+        
+        else if ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])== true) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!= true)) {
+            System.out.println(ListeJoueurs[1] + "à gagné !");              
+        }
+        
+        else if (grilleJeu.etreRemplie() == true) {
+            System.out.println(ListeJoueurs[0] + "à gagné !");    
+        }    
     } 
     
     
