@@ -87,7 +87,7 @@ public class Partie {
         joueurCourant = ListeJoueurs[0];
         int i=0;
 
-        while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
+        while (grilleJeu.etreRemplie() == false && grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
 
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2) Recuperer Jeton ; (3)Désintégrateur");
@@ -102,47 +102,38 @@ public class Partie {
                 System.out.println("Dans quelle colonne voulez-vous placer votre jeton ?");
                 int colonne = sc.nextInt(); 
 
+                // tant que l'utilisateur ne rentre pas une bonne colonne
+                while (colonne>6){
+                    System.out.println("ERREUR. Chiffre incorrect. Veuillez saisir un nombre entre 0 et 6. \nDans quelle colonne voulez-vous placer votre jeton ?");
+                    colonne = sc.nextInt(); 
+                }
+
                 // tant que l'utilisateur choisis une colonne remplie on lui affcihe un message d'erreur.
                 while (grilleJeu.ajouterJetonDansColonne(j, colonne) == false){
                     System.out.println("ERREUR. Colonne remplie. \nDans quelle colonne voulez-vous placer votre jeton ?");
                     colonne = sc.nextInt(); 
-
                 }
-
+                
+                grilleJeu.ajouterJetonDansColonne(j, colonne);
+                // le jeton a pu etre ajouter dans la colonne
             }
 
-                // le jeton a pu etre ajouter dans la colonne
-
-                
-
-                
 
             // RÉCUPÉRER JETON :
-
             if (coup ==2 ){
-
                 System.out.println("Dans quelle case voulez vous recuperer le jeton ?");
-
                 int x = sc.nextInt();
-
                 int y = sc.nextInt(); 
 
-                
-
                 while (grilleJeu.recupererJeton(x, y) != joueurCourant.ListeJetons[0]){
-
                     System.out.println("ERREUR. Le jeton récupéré n'est pas le votre ou case vide. \nDans quelle case voulez vous recuperer le jeton ?");
-
                     x = sc.nextInt();
-
                     y = sc.nextInt();
-
                     grilleJeu.placerDesintegrateur(x,y);
-
                 }
-
-
+                
                 grilleJeu.tasserGrille(y);
+                
 
                
 
@@ -204,8 +195,7 @@ public class Partie {
        
 
         if (grilleJeu.etreRemplie() == true || grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
-
-            System.out.print("FIN");
+            System.out.print("FIN. \n"+JoueurCourant+"");
 
         }
 
