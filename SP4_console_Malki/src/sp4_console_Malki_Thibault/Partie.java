@@ -121,23 +121,22 @@ public class Partie {
                 }
                 
                 grilleJeu.ajouterJetonDansColonne(j, colonne);
+                // le jeton a pu etre ajouter dans la colonne
+                
                 while (grilleJeu.CellulesJeu[i][colonne] == null){
                 i +=1;
-
                 }
-            } 
-                // le jeton a pu etre ajouter dans la colonne
-
+                // i = indice de la premiere case dans laquelle on a mis le jeton.
+  
             // CAS 1 : Le joueur place son jeton sur un désintégrateur ;
-            
-            // pour trouver x : faire boucle pour trouver i correspondant a la premiere case occupé par un jeton, en partant du haut.
-            if (grilleJeu.CellulesJeu[x][colonne].presenceDesintegrateur()){
+            if (grilleJeu.CellulesJeu[i][colonne].presenceDesintegrateur()){
                 
             }
             
             // CAS 2 : Le joueur place son jeton sur un trou noir; 
             // CAS 3 : Le joueur place son jeton sur un désintégrateur et un trou noir; 
             }
+            
 
             // RÉCUPÉRER JETON :
             if (coup ==2 ){
