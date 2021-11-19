@@ -66,7 +66,7 @@ public class Partie {
     public void debuterPartie() {
         Scanner sc = new Scanner(System.in);
         joueurCourant = ListeJoueurs[0];
-        int i=0;
+        int i=1;
 
         while ((grilleJeu.etreRemplie() == false) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!= true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!= true) {
 
@@ -79,13 +79,11 @@ public class Partie {
                 System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
                 int x = sc.nextInt();
                 int y = sc.nextInt();
-                grilleJeu.placerDesintegrateur(x,y);// FAUX ca lajoute dans la grille
                 
                 if (joueurCourant.nombreDesintegrateurs == 0){
                     System.out.println("ERREUR. Vous n'avez pas de désintegrateur... Veuillez jouer autre chose :");
                     System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton");
-                    coup = sc.nextInt();
-                
+                    coup = sc.nextInt();               
                 }
 
                 else {
@@ -93,9 +91,11 @@ public class Partie {
                     System.out.println("ERREUR. Vous ne pouvez pas désintegrer votre jeton. \nDans quelle case voulez vous placer le désintégrateur ?");
                     x = sc.nextInt();
                     y = sc.nextInt();
-                    grilleJeu.placerDesintegrateur(x,y);
                     }
                 }
+                
+                grilleJeu.CellulesJeu[x][y].recupererJeton();
+                grilleJeu.tasserGrille(y);
             }
 
             
@@ -121,9 +121,23 @@ public class Partie {
                 }
                 
                 grilleJeu.ajouterJetonDansColonne(j, colonne);
-                // le jeton a pu etre ajouter dans la colonne
-            }
+                while (grilleJeu.CellulesJeu[i][colonne] == null){
+                i +=1;
 
+                }
+            } 
+                // le jeton a pu etre ajouter dans la colonne
+
+            // CAS 1 : Le joueur place son jeton sur un désintégrateur ;
+            
+            // pour trouver x : faire boucle pour trouver i correspondant a la premiere case occupé par un jeton, en partant du haut.
+            if (grilleJeu.CellulesJeu[x][colonne].presenceDesintegrateur()){
+                
+            }
+            
+            // CAS 2 : Le joueur place son jeton sur un trou noir; 
+            // CAS 3 : Le joueur place son jeton sur un désintégrateur et un trou noir; 
+            }
 
             // RÉCUPÉRER JETON :
             if (coup ==2 ){
