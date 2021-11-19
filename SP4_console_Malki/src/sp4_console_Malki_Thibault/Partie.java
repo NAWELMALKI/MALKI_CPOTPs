@@ -48,36 +48,23 @@ public class Partie {
         //PLACEMENT des trous noirs et désintégrateurs, avant que les joueurs ne commencent à jouer:  
 
         Random rand = new Random();
-
         for (int p=0; p<4 ; p++){    
-
             int i = rand.nextInt(7) ;
-
             int j = rand.nextInt(6) ;
-
             grilleJeu.placerTrouNoir(i, j);  
-
         }
 
         for (int p=0; p<4 ; p++){    
-
             int i = rand.nextInt() ;
-
             int j = rand.nextInt() ;
-
             grilleJeu.placerDesintegrateur(i, j);  
-
         }
 
         for (int p=0; p<3 ; p++){   
             int i = rand.nextInt() ;
-
             int j = rand.nextInt() ;
-
             grilleJeu.placerTrouNoir(i, j);
-
             grilleJeu.placerDesintegrateur(i, j);
-
         }
     }
   
@@ -148,29 +135,17 @@ public class Partie {
             // PLACER DESINTEGRATEUR :
 
             if (coup ==3 ){
-
                 System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
-
                 int x = sc.nextInt();
-
                 int y = sc.nextInt();
-
                 grilleJeu.placerDesintegrateur(x,y);
 
-               
-
                 while (grilleJeu.placerDesintegrateur(x,y) == false){
-
                     System.out.println("ERREUR. Désintégrateur déja présent ou case vide. \nDans quelle case voulez vous placer le désintégrateur ?");
-
                     x = sc.nextInt();
-
                     y = sc.nextInt();
-
                     grilleJeu.placerDesintegrateur(x,y);
-
                 }
-
             }  
 
             
@@ -179,28 +154,17 @@ public class Partie {
 
             if (joueurCourant == ListeJoueurs[1]){
                 joueurCourant = ListeJoueurs[0];
-
                 //i+=1; // si JC = J2 => J1 à déja jouer alors on peut passer au jeton n°2 (dans liste ListeJetons)
-
             }
 
             else {
-
                 joueurCourant = ListeJoueurs[1];
-
             } 
-
         }
-
-       
-
+        
         if (grilleJeu.etreRemplie() == true || grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
             System.out.print("FIN. \n"+JoueurCourant+"");
-
         }
-
-   
-
     } 
 
 
@@ -218,10 +182,7 @@ public class Partie {
          else{
           ListeJoueurs[1].Couleur = "Rouge" ;
           ListeJoueurs[0].Couleur = "Jaune" ;  
-         }
-        
-        
-        
+         } 
     }
 
 }
