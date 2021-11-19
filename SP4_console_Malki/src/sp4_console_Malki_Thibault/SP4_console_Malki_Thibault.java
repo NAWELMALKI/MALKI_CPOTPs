@@ -21,13 +21,16 @@ public class SP4_console_Malki_Thibault {
         // TODO code application logic here
         
        Jeton j = new Jeton("Rouge") ;
-       s.o.p (j.lireCouleur());
+       System.out.print(j.lireCouleur());
        
-       cellule c =new Cellule();
-       s.o.p(c.lireCouleurduJeton());
+       Cellule c =new Cellule();
+       System.out.print(c.lireCouleurDuJeton());  // affiche du vide
        c.affecterJeton(j);
-       s.o.p(C.lireCouleurduJeton());
-       grille G = new Grile();
+       System.out.print(c.lireCouleurDuJeton());  // affiche rouge 
+       Grille G = new Grille();
+       G.afficherGrilleSurConsole();  // affiche grille vierge 
+       G.ajouterJetonDansColonne(j,5);
+       G.afficherGrilleSurConsole();  // affiche grille avec jeton
         
         
     }
