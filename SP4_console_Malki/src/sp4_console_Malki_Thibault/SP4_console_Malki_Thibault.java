@@ -32,6 +32,8 @@ public class SP4_console_Malki_Thibault {
        G.ajouterJetonDansColonne(j,5);
        G.afficherGrilleSurConsole();  // affiche grille avec jeton
         
+       
+       
         
     }
     

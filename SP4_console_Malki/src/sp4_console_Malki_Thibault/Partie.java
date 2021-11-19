@@ -125,7 +125,7 @@ public class Partie {
                
 
                 //Rajoute le jeton récupéré dans la listeJeton :
-
+                   
     
 
             }
@@ -162,9 +162,6 @@ public class Partie {
             } 
         }
         
-        if (grilleJeu.etreRemplie() == true || grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
-            System.out.print("FIN. \n"+JoueurCourant+"");
-        }
     } 
 
 
