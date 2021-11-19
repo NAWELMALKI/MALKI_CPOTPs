@@ -8,7 +8,7 @@ package sp4_console_Malki_Thibault;
 
 /**
  *MALKI
- * THIBAULT 
+ *THIBAULT 
  * @author saidm
  */
 import java.util.Random ;
