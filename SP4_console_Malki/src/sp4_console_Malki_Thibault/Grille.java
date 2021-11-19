@@ -23,15 +23,23 @@ public class Grille {
    } 
    
  public boolean etreRemplie(){
-  for(int=0; i<6; i++){
-     for(int j=0 ; j<7; j++){
-         if (Cell)
-     }
- }   
+  for(int i=0; i<6; i++){
+     for(int j=0 ; j<7; j++)
+         if (CellulesJeu[i][j]== null){
+             return false ;
+         }
+         else {
+             return true ;
+         }
+    }  
  }
  
   public void viderGrille(){
-      CellulesJeu = null ;
+     for(int i = 0 ; i< 6 ; i++){
+         for(int j=0; j<7; j++)
+             CellulesJeu[i][j]= null ;
+         }
+     
   }
   public boolean celluleOccupee(int ligne, int colonne){
 
