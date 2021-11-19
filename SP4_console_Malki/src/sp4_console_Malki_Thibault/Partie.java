@@ -8,39 +8,30 @@ package sp4_console_Malki_Thibault;
 
 /**
  *MALKI
- * THIBAULT 
+ *THIBAULT 
  * @author saidm
  */
 import java.util.Random ;
+import java.util.Scanner;
+
 public class Partie {
-
-    
     Joueur ListeJoueurs[] = new Joueur[2];
-
     Joueur joueurCourant;
-
     Grille grilleJeu = null;
  
     
      public Partie(Joueur j1, Joueur j2) {
-
            ListeJoueurs[0] = j1;  //on place joueur 1 dans la ListeJoueurs
-
            ListeJoueurs[1] = j2;  // idem pour joueur 2 
-
     }
     
   public void initialiserPartie(){   
-
         while (grilleJeu != null) {
-
             grilleJeu.viderGrille();
-
         }
 
         grilleJeu = new Grille();
-
-       
+ 
 
         //on attribut 21 jetons d'une couleur à chaque joueur:
 
@@ -78,8 +69,7 @@ public class Partie {
 
         }
 
-        for (int p=0; p<3 ; p++){    
-
+        for (int p=0; p<3 ; p++){   
             int i = rand.nextInt() ;
 
             int j = rand.nextInt() ;
@@ -89,42 +79,32 @@ public class Partie {
             grilleJeu.placerDesintegrateur(i, j);
 
         }
-
     }
+  
+  
     public void debuterPartie() {
-
         Scanner sc = new Scanner(System.in);
-
         joueurCourant = ListeJoueurs[0];
-
         int i=0;
-
-       
 
         while (grilleJeu.etreRemplie() == false || grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
 
             grilleJeu.afficherGrilleSurConsole();
-
             System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2) Recuperer Jeton ; (3)Désintégrateur");
-
             int coup = sc.nextInt();
 
-           
-
             // Ajouter Jeton Colonne:
-
             if (coup == 1){
-
+                Jeton j = joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants -1];
+                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
+                joueurCourant.nombreJetonsRestants--;  
+                
                 System.out.println("Dans quelle colonne voulez-vous placer votre jeton ?");
-
                 int colonne = sc.nextInt(); 
 
                 // tant que l'utilisateur choisis une colonne remplie on lui affcihe un message d'erreur.
-
-                while (grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[i], colonne) == false){
-
+                while (grilleJeu.ajouterJetonDansColonne(j, colonne) == false){
                     System.out.println("ERREUR. Colonne remplie. \nDans quelle colonne voulez-vous placer votre jeton ?");
-
                     colonne = sc.nextInt(); 
 
                 }
@@ -161,7 +141,6 @@ public class Partie {
 
                 }
 
-               
 
                 grilleJeu.tasserGrille(y);
 
@@ -169,13 +148,7 @@ public class Partie {
 
                 //Rajoute le jeton récupéré dans la listeJeton :
 
-                ???
-
-                Jeton j = joueurCourant.ListeJetons[joueurCourant.ListeJetons -1];
-
-                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
-
-                joueurCourant.nombreJetonsRestants--;      
+    
 
             }
 
@@ -214,10 +187,9 @@ public class Partie {
             //CHANGEMENT DE JOUEUR :
 
             if (joueurCourant == ListeJoueurs[1]){
-
                 joueurCourant = ListeJoueurs[0];
 
-                i+=1; // si JC = J2 => J1 à déja jouer alors on peut passer au jeton n°2 (dans liste ListeJetons)
+                //i+=1; // si JC = J2 => J1 à déja jouer alors on peut passer au jeton n°2 (dans liste ListeJetons)
 
             }
 
