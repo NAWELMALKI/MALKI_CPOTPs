@@ -73,7 +73,6 @@ public class Partie {
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton ; (3)Désintégrateur");
             int coup = sc.nextInt();
-
             
             // PLACER DESINTEGRATEUR :
             if (coup ==3 ){
