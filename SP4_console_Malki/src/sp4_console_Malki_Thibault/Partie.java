@@ -130,11 +130,17 @@ public class Partie {
   
             // CAS 1 : Le joueur place son jeton sur un désintégrateur ;
             if (grilleJeu.CellulesJeu[i][colonne].presenceDesintegrateur()){
-                
+                joueurCourant.nombreDesintegrateurs =+1 ;
             }
             
             // CAS 2 : Le joueur place son jeton sur un trou noir; 
+            if (grilleJeu.CellulesJeu[i][colonne].presenceTrouNoir()){
+                grilleJeu.CellulesJeu[i][colonne].activerTrouNoir();
+            }
+            
+            
             // CAS 3 : Le joueur place son jeton sur un désintégrateur et un trou noir; 
+            
             }
             
 
