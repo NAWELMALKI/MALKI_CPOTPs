@@ -200,7 +200,7 @@ public class Partie {
                 joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
                 joueurCourant.nombreJetonsRestants--;  
                 
-                grilleJeu.ajouterJetonDansColonne(j, colonne);
+                grilleJeu.ajouterJetonDansColonne(j, colonne+1);
                 // le jeton a pu etre ajouter dans la colonne
                 
                 while (grilleJeu.CellulesJeu[i][colonne] == null){
@@ -211,7 +211,7 @@ public class Partie {
             // CAS 1 : Le joueur place son jeton sur un désintégrateur ;
                 if (grilleJeu.CellulesJeu[i][colonne].presenceDesintegrateur()){
                     joueurCourant.nombreDesintegrateurs =+1 ;
-                    System.out.println("VOUS AVEZ RÉCUPÉRÉ UN DÉSINTÉGRATEUR ! \nVous avez actuellement " + joueurCourant.nombreDesintegrateurs + "désintégrateur(s).");
+                    System.out.println("VOUS AVEZ RÉCUPÉRÉ UN DÉSINTÉGRATEUR ! \nVous avez actuellement " + joueurCourant.nombreDesintegrateurs + " désintégrateur(s).");
                 }
 
             // CAS 2 : Le joueur place son jeton sur un trou noir; 
