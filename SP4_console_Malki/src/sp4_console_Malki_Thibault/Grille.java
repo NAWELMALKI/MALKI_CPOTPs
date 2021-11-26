@@ -23,40 +23,36 @@ public class Grille {
    } 
    
  
-public boolean etreRemplie(){
-      
-      if (CellulesJeu != null){
-          return true ;
-      }
-      else {
-          return false;
-      }
+ public boolean etreRemplie(){
+        for (int i =0; i < 6; i++){    //ligne 6
+            for (int j=0; j<7; j++)    //colonne 7
+                if (CellulesJeu[i][j] == null){
+                    return false; 
+                }
+        }
+        return true;
     }
   
-  public void viderGrille(){
-      CellulesJeu = null ;
-  }
+      public void viderGrille(){
+        for (int i =0; i < 6; i++){    //ligne 6
+           for (int j=0; j<7; j++)    //colonne 7
+               CellulesJeu[i][j] = null;
+ 
+       }      
+    }
+      
+      
   public boolean celluleOccupee(int ligne, int colonne){
-
         if (CellulesJeu[ligne][colonne] != null){
-
             return true ;
-
         }
-
         else {
-
             return false;
-
         }
-
     }
   
 public String lireCouleurDuJeton(int ligne, int colonne){
-       
         return CellulesJeu[ligne][colonne].lireCouleurDuJeton();
-            
-        
 }
 
 public boolean colonneRemplie(int colonne){
@@ -297,7 +293,6 @@ public boolean placerTrouNoir(int ligne, int colonne){
 }
 
  public boolean placerDesintegrateur(int ligne , int colonne ){
-    
     if(CellulesJeu[ligne][colonne].placerDesintegrateur()== true ){
         return true ;
     }

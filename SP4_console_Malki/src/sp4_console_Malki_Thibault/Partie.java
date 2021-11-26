@@ -42,20 +42,20 @@ public class Partie {
         //PLACEMENT des trous noirs et désintégrateurs, avant que les joueurs ne commencent à jouer:  
         Random rand = new Random();
         for (int p=0; p<4 ; p++){    
-            int i = rand.nextInt(7) ;
-            int j = rand.nextInt(6) ;
+            int i = rand.nextInt(6) ;
+            int j = rand.nextInt(7) ;
             grilleJeu.placerTrouNoir(i, j);  
         }
 
         for (int p=0; p<4 ; p++){    
-            int i = rand.nextInt() ;
-            int j = rand.nextInt() ;
+            int i = rand.nextInt(6) ;
+            int j = rand.nextInt(7) ;
             grilleJeu.placerDesintegrateur(i, j);  
         }
 
         for (int p=0; p<3 ; p++){   
-            int i = rand.nextInt() ;
-            int j = rand.nextInt() ;
+            int i = rand.nextInt(6) ;
+            int j = rand.nextInt(7) ;
             grilleJeu.placerTrouNoir(i, j);
             grilleJeu.placerDesintegrateur(i, j);
         }
