@@ -18,36 +18,45 @@ import java.util.Scanner;
  */
 public class Convertisseur_RINGUEDE_MALKI {
 
-    /**
+    public Convertisseur_ {
+    nbConversions = 0 ;
+    
+
      * @param args the command line arguments
      */
     public static double CelciusVersKelvin(double tCelcius) { //fonction conversion avec un parametre réel
         double tKelvin = (tCelcius + 273.15);
+         nbConversions =  nbConversions + 1
         return tKelvin;
     }
 
     public static double KelvinVersCelcius(double tKelvin) { //fonction conversion avec un parametre réel
         double tCelcius = (tKelvin - 273.15);
+         nbConversions =  nbConversions + 1
         return tCelcius;
     }
 
     public static double FahrenheitVersCelcius(double tFahrenheit) { //fonction conversion avec un parametre réel
         double tCelcius = (tFahrenheit - 32) / 1.8;
+        nbConversions =  nbConversions + 1
         return tCelcius;
     }
 
     public static double CelciusVersFahrenheit(double tCelcius) { //fonction conversion avec un parametre réel
         double tFahrenheit = (tCelcius + 32) * 1.8;
+         nbConversions =  nbConversions + 1
         return tFahrenheit;
     }
 
     public static double KelvinVersFahrenheit(double tKelvin) { //fonction conversion avec un parametre réel
         double tFahrenheit = ((tKelvin - 273.15) * 1.8) + 32;
+                 nbConversions =  nbConversions + 1
         return tFahrenheit;
-    }
+    }         
 
     public static double FahrenheitVersKelvin(double tFahrenheit) { //fonction conversion avec un parametre réel
         double tKelvin = ((tFahrenheit - 32) / 1.8) + 273.15;
+                 nbConversions =  nbConversions + 1
         return tKelvin;
     }
 
@@ -98,6 +107,6 @@ public class Convertisseur_RINGUEDE_MALKI {
                 System.out.println(temp + " degrés Fahrenheit est égal à " + tempf + " dégrés Kelvin");
         }
 
+        }
     }
 
-}
