@@ -200,7 +200,7 @@ public class Partie {
 
         
         
- public   void attribuerCouleursAuxJoueurs(){
+ public void attribuerCouleursAuxJoueurs(){
          Random r = new Random()  ;
          boolean couleur ;
          couleur = r.nextBoolean();
