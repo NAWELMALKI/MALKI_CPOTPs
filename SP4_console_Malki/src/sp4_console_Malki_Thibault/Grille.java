@@ -308,25 +308,15 @@ public boolean placerTrouNoir(int ligne, int colonne){
 }
 
     public boolean ajouterJetonDansColonne(Jeton jetonJoueur, int colonne){
-
         int i = 0;
-
         while (CellulesJeu[i][colonne] == null){
-
                 i +=1;
-
                 if (i > 6) {
-
                     return false;
-
                 }
-
             }
-
         CellulesJeu[i][colonne].affecterJeton(jetonJoueur);
-
             return true;
-
     }
 
      public void afficherGrilleSurConsole(){

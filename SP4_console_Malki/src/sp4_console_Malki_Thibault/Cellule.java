@@ -26,17 +26,11 @@ public class Cellule {
     public boolean affecterJeton(Jeton entree) {
 
         if (jetonCourant == null) {
-
             jetonCourant = entree;
-
             return true;
-
         }
-
             else {
-
                  return false;  
-
                     }
 
     }
@@ -52,10 +46,8 @@ public class Cellule {
         // return null;
     }
     
-    public Jeton recupererJeton(){
-        
-        return jetonCourant ;
-        
+    public Jeton recupererJeton(){ 
+        return jetonCourant ;     
     }
     
    public boolean  supprimerJeton(){
