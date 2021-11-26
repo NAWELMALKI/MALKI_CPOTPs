@@ -22,25 +22,38 @@ public class Grille {
        }
    } 
    
- public boolean etreRemplie(){
-  for(int i=0; i<6; i++){
-     for(int j=0 ; j<7; j++)
-         if (CellulesJeu[i][j]== null){
-             return false ;
-         }
-         else {
-             return true ;
-         }
-    }  
- }
+
+  public boolean etreRemplie(){
+
+        for (int i =0; i < 6; i++){    //ligne 6
+
+            for (int j=0; j<7; j++)    //colonne 7
+
+                if (CellulesJeu[i][j] == null){
+
+                    return false; 
+
+                }
+
+        }
+
+        return true;
+
+    }
+
+      public void viderGrille(){
+
+        for (int i =0; i < 6; i++){    //ligne 6
+
+           for (int j=0; j<7; j++)    //colonne 7
+
+               CellulesJeu[i][j] = null;
+
  
-  public void viderGrille(){
-     for(int i = 0 ; i< 6 ; i++){
-         for(int j=0; j<7; j++)
-             CellulesJeu[i][j]= null ;
-         }
-     
-  }
+
+       }      
+
+    }
   public boolean celluleOccupee(int ligne, int colonne){
 
         if (CellulesJeu[ligne][colonne] != null){

@@ -28,11 +28,16 @@ public class SP4_console_Malki_Thibault {
        c.affecterJeton(j);
        System.out.print(c.lireCouleurDuJeton());  // affiche rouge 
        Grille G = new Grille();
-       G.afficherGrilleSurConsole();  // affiche grille vierge 
        G.ajouterJetonDansColonne(j,5);
-       G.afficherGrilleSurConsole();  // affiche grille avec jeton
+       G.afficherGrilleSurConsole();  // affiche grille vierge 
+         // affiche grille avec jeton
         
+       Joueur j1 = new Joueur ("Joueur 1") ;
+       Joueur j2 = new Joueur ("Joueur 2") ;
        
+       Partie partie  = new Partie(j1,j2);
+       partie.initialiserPartie();
+       partie.debuterPartie();
        
         
     }

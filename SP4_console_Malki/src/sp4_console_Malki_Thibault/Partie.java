@@ -25,7 +25,7 @@ public class Partie {
            ListeJoueurs[1] = j2;  // idem pour joueur 2 
     }
     
-  public void initialiserPartie(){   
+     public void initialiserPartie(){   
         while (grilleJeu != null) {
             grilleJeu.viderGrille();
         }
@@ -34,38 +34,32 @@ public class Partie {
  
 
         //on attribut 21 jetons d'une couleur à chaque joueur:
-
         for (int i = 0; i < 21; i++) {
-
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
-
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
-
-        }
-
-          
+        } 
 
         //PLACEMENT des trous noirs et désintégrateurs, avant que les joueurs ne commencent à jouer:  
-
         Random rand = new Random();
         for (int p=0; p<4 ; p++){    
-            int i = rand.nextInt(7) ;
-            int j = rand.nextInt(6) ;
+            int i = rand.nextInt(6) ;
+            int j = rand.nextInt(7) ;
             grilleJeu.placerTrouNoir(i, j);  
         }
 
         for (int p=0; p<4 ; p++){    
-            int i = rand.nextInt() ;
-            int j = rand.nextInt() ;
+            int i = rand.nextInt(6) ;
+            int j = rand.nextInt(7) ;
             grilleJeu.placerDesintegrateur(i, j);  
         }
 
         for (int p=0; p<3 ; p++){   
-            int i = rand.nextInt() ;
-            int j = rand.nextInt() ;
+            int i = rand.nextInt(6) ;
+            int j = rand.nextInt(7) ;
             grilleJeu.placerTrouNoir(i, j);
             grilleJeu.placerDesintegrateur(i, j);
         }
+        
     }
   
   
@@ -74,7 +68,7 @@ public class Partie {
         joueurCourant = ListeJoueurs[0];
         int i=0;
 
-        while (grilleJeu.etreRemplie() == false && grilleJeu.etreGagnantePourJoueur(joueurCourant)) {
+        while ((grilleJeu.etreRemplie() == false) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!= true) &&  grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!= true) {
 
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2) Recuperer Jeton ; (3)Désintégrateur");
@@ -120,20 +114,14 @@ public class Partie {
                 }
                 
                 grilleJeu.tasserGrille(y);
-                
-
-               
 
                 //Rajoute le jeton récupéré dans la listeJeton :
-                   
-    
 
             }
 
                
 
             // PLACER DESINTEGRATEUR :
-
             if (coup ==3 ){
                 System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
                 int x = sc.nextInt();
@@ -148,10 +136,7 @@ public class Partie {
                 }
             }  
 
-            
-
             //CHANGEMENT DE JOUEUR :
-
             if (joueurCourant == ListeJoueurs[1]){
                 joueurCourant = ListeJoueurs[0];
                 //i+=1; // si JC = J2 => J1 à déja jouer alors on peut passer au jeton n°2 (dans liste ListeJetons)
@@ -162,12 +147,17 @@ public class Partie {
             } 
         }
         
-    } 
+    }
+        // On est sorti de la boucle == il y a un gagnant !
+        // DÉTERMINATION DU GAGNANT :
+
+    
+    
 
 
         
         
- public   void attribuerCouleursAuxJoueurs(){
+ public void attribuerCouleursAuxJoueurs(){
          Random r = new Random()  ;
          boolean couleur ;
          couleur = r.nextBoolean();
