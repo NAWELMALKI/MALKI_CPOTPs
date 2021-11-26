@@ -39,12 +39,7 @@ public class SP4_console_Malki_Thibault {
        partie.initialiserPartie();
        partie.debuterPartie();
         
-       Joueur j1 = new Joueur ("Joueur 1") ;
-       Joueur j2 = new Joueur ("Joueur 2") ;
-       
-       Partie partie  = new Partie(j1,j2);
-       partie.initialiserPartie();
-       partie.debuterPartie();
+
        
         
     }

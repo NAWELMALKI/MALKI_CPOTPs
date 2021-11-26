@@ -26,14 +26,24 @@ public class Grille {
  public boolean etreRemplie(){
         for (int i =0; i < 6; i++){    //ligne 6
             for (int j=0; j<7; j++)    //colonne 7
-                if (CellulesJeu[i][j] == null){
+                if (CellulesJeu[i][j].jetonCourant == null){
                     return false; 
                 }
         }
         return true;
     }
   
-      public void viderGrille(){
+ public boolean etreVide( ){
+        for (int i =0; i < 6; i++){    //ligne 6
+            for (int j=0; j<7; j++)    //colonne 7
+                if (CellulesJeu[i][j].jetonCourant != null){ // && (CouleurJeton == jetonCourant.Couleur)) 
+                    return false; 
+                }  
+                }
+        return true;
+    }
+ 
+ public void viderGrille(){
         for (int i =0; i < 6; i++){    //ligne 6
            for (int j=0; j<7; j++)    //colonne 7
                CellulesJeu[i][j] = null;
@@ -326,15 +336,22 @@ public boolean placerTrouNoir(int ligne, int colonne){
                      else if( CellulesJeu[i][j].lireCouleurDuJeton() =="Jaune"){
                          System.out.print("J");
                      }
-                 } 
-                else if( CellulesJeu[i][j].jetonCourant == null){
-                    System.out.print("-"); 
                  }
-                 
+                
+                
                 else if ( CellulesJeu[i][j].trouNoir == true){
                          System.out.print("#") ;
                  }
                 
+                else if ( CellulesJeu[i][j].desintegrateur == true){
+                          System.out.print("@") ;
+                 }
+
+                
+                else if( CellulesJeu[i][j].jetonCourant == null){
+                    System.out.print("-"); 
+                 }
+
                 else{
                     
                 }
