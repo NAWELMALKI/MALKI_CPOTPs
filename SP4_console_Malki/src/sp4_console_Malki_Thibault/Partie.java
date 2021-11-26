@@ -26,7 +26,8 @@ public class Partie {
     }
     
      public void initialiserPartie(){  
-         
+        
+        attribuerCouleursAuxJoueurs(); 
         System.out.println("grilleJeu " + grilleJeu);   
         
         while (grilleJeu != null) {
@@ -42,7 +43,8 @@ public class Partie {
         for (int i = 0; i < 21; i++) {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
-        } 
+        }
+        //System.out.println(joueurCourant.nombreJetonsRestants);
 
         //PLACEMENT des trous noirs et désintégrateurs, avant que les joueurs ne commencent à jouer:  
         Random rand = new Random();
@@ -95,74 +97,108 @@ public class Partie {
         Scanner sc = new Scanner(System.in);
         joueurCourant = ListeJoueurs[0];
         int i=1;
-
-        System.out.println("je suis AVANT le while");
-        System.out.println("etreRemplie : " + grilleJeu.etreRemplie());
-        System.out.println("etreGagnantePourJoueur 0 :" + grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]));
-        System.out.println("etreGagnantePourJoueur 1 : " + grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]));
         
         while ((grilleJeu.etreRemplie() == false) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!= true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!= true) {
-            System.out.println("je suis APRES");
-            boolean CoupValide = false;
-            
-            
-            while (CoupValide == false){
-                
-            }
-            
-            
             grilleJeu.afficherGrilleSurConsole();
-            System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton ; (3)Désintégrateur");
-            int coup = sc.nextInt();
+            boolean CoupValide = false;
+            int coup=-1;
+            int x = -1;
+            int y = -1;
+            int colonne = -1;
+            Jeton j = joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants -1];
             
-     // PLACER DESINTEGRATEUR :
-            if (coup ==3 ){
+            
+    // VÉRIFICATION QUE LE COUP JOUÉ EST JUSTE :
+            while (CoupValide == false){
+                System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton ; (3)Désintégrateur");
+                 coup = sc.nextInt();
                 
-                if (joueurCourant.nombreDesintegrateurs == 0){
-                    System.out.println("ERREUR. Vous n'avez pas de désintegrateur... Veuillez jouer autre chose :");
-                    System.out.println("Que voulez vous jouer ? (1)Ajouter Jeton Colonne ; (2)Recuperer Jeton");
-                    coup = sc.nextInt();               
+                if (coup > 3 || coup < 1){
+                    System.out.println("ERREUR : Veuillez saisir un nombre entre 1 et 3.");
                 }
                 
-                System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
-                int x = sc.nextInt();
-                int y = sc.nextInt();
-
-
-                while (grilleJeu.lireCouleurDuJeton(x, y) == joueurCourant.Couleur){
-                    System.out.println("ERREUR. Vous ne pouvez pas désintegrer votre jeton. \nDans quelle case voulez vous placer le désintégrateur ?");
-                    x = sc.nextInt();
-                    y = sc.nextInt();
+         //placer DÉSINTÉGRATEUR 
+                if (coup == 3){
+                    if (joueurCourant.nombreDesintegrateurs == 0){
+                        System.out.println("ERREUR. Vous n'avez pas de désintegrateur... Veuillez jouer autre chose :");  
+                    }
                     
+                    else if (joueurCourant.nombreDesintegrateurs > 0) {
+                        System.out.println("Dans quelle case voulez vous placer le désintégrateur ?");
+                        System.out.println("x :");
+                        x = sc.nextInt();                        
+                        System.out.println("y :");
+                        y = sc.nextInt();
+                        if ((x > 1|| x < 8) && (y > 1|| y < 7)) {
+                            System.out.println("ERREUR. Case hors du tableau.");  
+                        }   
+                    } 
+                    
+                    else {
+                            CoupValide = true; 
+                                }
                 }
                 
-                grilleJeu.CellulesJeu[x][y].recupererJeton();
-                System.out.println("Vous avez désintégré le jeton de votre adversaire. Il a explosé en particules subatomiques et est définitivement perdu. ");
-                grilleJeu.tasserGrille(y);
-                
-            }
+         // RÉCUPÉRER JETON :
+                if (coup ==2 ){
+                    if (grilleJeu.etreVide() == true){
+                        System.out.println("ERREUR. Vous n'avez pas encore placé de jeton.");
+                        
+                    }
 
-            
-    // Ajouter Jeton Colonne:
-            if (coup == 1){
-                Jeton j = joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants -1];
-                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
-                joueurCourant.nombreJetonsRestants--;  
+                    if (grilleJeu.etreVide() != true){
+                        System.out.println("Dans quelle case voulez vous recuperer le jeton ?");
+                        x = sc.nextInt();
+                        y = sc.nextInt(); 
+                        if (grilleJeu.lireCouleurDuJeton(x, y) != joueurCourant.Couleur){
+                            System.out.println("ERREUR. Le jeton récupéré n'est pas le votre ou case vide.");
+                            CoupValide = false;
+                        }
+                        
+                        else {
+                            CoupValide = true;
+                        } 
+                            
+                        }
+                    }
                 
+                
+         // PLACER COLONNE :
+                if (coup == 1){
                 System.out.println("Dans quelle colonne voulez-vous placer votre jeton ?");
-                int colonne = sc.nextInt(); 
+                colonne = sc.nextInt(); 
 
                 // tant que l'utilisateur ne rentre pas une bonne colonne
-                while (colonne>6){
-                    System.out.println("ERREUR. Chiffre incorrect. Veuillez saisir un nombre entre 0 et 6. \nDans quelle colonne voulez-vous placer votre jeton ?");
-                    colonne = sc.nextInt(); 
+                if (colonne>6){
+                    System.out.println("ERREUR. Chiffre incorrect. Veuillez saisir un nombre entre 0 et 6. \nDans quelle colonne voulez-vous placer votre jeton ?");  
                 }
 
                 // tant que l'utilisateur choisis une colonne remplie on lui affcihe un message d'erreur.
-                while (grilleJeu.ajouterJetonDansColonne(j, colonne) == false){
-                    System.out.println("ERREUR. Colonne remplie. \nDans quelle colonne voulez-vous placer votre jeton ?");
-                    colonne = sc.nextInt(); 
+                if (grilleJeu.ajouterJetonDansColonne(j, colonne) == false){
+                    System.out.println("ERREUR. Colonne remplie.");
+                   
                 }
+                
+                else {
+                    CoupValide = true;
+                }   
+              }
+            }
+            
+    // COUP VALIDE      
+       // PLACER DESINTEGRATEUR :
+       
+            if (coup ==3 ){
+    
+                grilleJeu.CellulesJeu[x][y].recupererJeton();
+                System.out.println("Vous avez désintégré le jeton de votre adversaire. Il a explosé en particules subatomiques et est définitivement perdu. ");
+                grilleJeu.tasserGrille(y);
+                }
+            
+       // Ajouter Jeton Colonne:
+            if (coup == 1){
+                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
+                joueurCourant.nombreJetonsRestants--;  
                 
                 grilleJeu.ajouterJetonDansColonne(j, colonne);
                 // le jeton a pu etre ajouter dans la colonne
@@ -173,38 +209,21 @@ public class Partie {
                 // i = indice de la premiere case dans laquelle on a mis le jeton.
   
             // CAS 1 : Le joueur place son jeton sur un désintégrateur ;
-            if (grilleJeu.CellulesJeu[i][colonne].presenceDesintegrateur()){
-                joueurCourant.nombreDesintegrateurs =+1 ;
-                System.out.println("VOUS AVEZ RÉCUPÉRÉ UN DÉSINTÉGRATEUR ! \nVous avez actuellement " + joueurCourant.nombreDesintegrateurs + "désintégrateur(s).");
-            }
-            
+                if (grilleJeu.CellulesJeu[i][colonne].presenceDesintegrateur()){
+                    joueurCourant.nombreDesintegrateurs =+1 ;
+                    System.out.println("VOUS AVEZ RÉCUPÉRÉ UN DÉSINTÉGRATEUR ! \nVous avez actuellement " + joueurCourant.nombreDesintegrateurs + "désintégrateur(s).");
+                }
+
             // CAS 2 : Le joueur place son jeton sur un trou noir; 
-            if (grilleJeu.CellulesJeu[i][colonne].presenceTrouNoir()){
-                grilleJeu.CellulesJeu[i][colonne].activerTrouNoir();
-                System.out.println("Votre jeton a été absorbé par un trou noir... ");
-            }
+                if (grilleJeu.CellulesJeu[i][colonne].presenceTrouNoir()){
+                    grilleJeu.CellulesJeu[i][colonne].activerTrouNoir();
+                    System.out.println("Votre jeton a été absorbé par un trou noir... ");
+                }
             }
             
 
-            // RÉCUPÉRER JETON :
+       // RÉCUPÉRER JETON :
             if (coup ==2 ){
-                
-                if (grilleJeu.etreVide() == true){
-                    System.out.println("ERREUR. Vous n'avez pas encore placé de jeton. \nDans quelle case voulez vous recuperer le jeton ?");
-                    int x = sc.nextInt();
-                    int y = sc.nextInt();
-                }
-                
-                System.out.println("Dans quelle case voulez vous recuperer le jeton ?");
-                int x = sc.nextInt();
-                int y = sc.nextInt(); 
-
-                while (grilleJeu.lireCouleurDuJeton(x, y) != joueurCourant.Couleur){
-                    System.out.println("ERREUR. Le jeton récupéré n'est pas le votre ou case vide. \nDans quelle case voulez vous recuperer le jeton ?");
-                    x = sc.nextInt();
-                    y = sc.nextInt();
-                }
-                
                 //Rajoute le jeton récupéré dans la listeJeton :
                 Jeton jTEMP = grilleJeu.CellulesJeu[x][y].recupererJeton();
                 joueurCourant.ajouterJeton(jTEMP);
