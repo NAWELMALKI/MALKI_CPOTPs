@@ -209,16 +209,18 @@ public boolean colonneRemplie(int colonne){
             String CouleurCase = lireCouleurDuJeton(i,j);
 
                 if (CouleurCase == CouleurGagnante){ // case = couleur du joueur
+
                     int p =i;
+
                     int n = j;
 
                     while (CellulesJeu[p][n].lireCouleurDuJeton()== CouleurGagnante){
 
                         compteur += 1;
 
-                        p -=1;
+                        p +=1;
 
-                        n +=1;
+                        n -=1;
 
                         if (compteur == 4){
 
@@ -315,7 +317,6 @@ public boolean placerTrouNoir(int ligne, int colonne){
         while (celluleOccupee(i,colonne) == false){
                 i +=1;
                 if (i > 5) {
-                    i = 5;
                     break ;
                 }
             }
