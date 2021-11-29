@@ -319,7 +319,9 @@ public boolean placerTrouNoir(int ligne, int colonne){
                     break ;
                 }
             }
-        CellulesJeu[i][colonne].affecterJeton(jetonJoueur);
+        
+        boolean stock = CellulesJeu[i][colonne].affecterJeton(jetonJoueur);
+       
             return true;
         
     }

@@ -28,7 +28,7 @@ public class SP4_console_Malki_Thibault {
        c.affecterJeton(j);
        System.out.print(c.lireCouleurDuJeton());  // affiche rouge
        Grille G = new Grille();
-       G.ajouterJetonDansColonne(j,5);
+       boolean sauv = G.ajouterJetonDansColonne(j,5);
        G.afficherGrilleSurConsole();  // affiche grille vierge
          // affiche grille avec jeton
        

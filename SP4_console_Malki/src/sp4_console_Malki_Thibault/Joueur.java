@@ -36,7 +36,7 @@ public class Joueur {
 
             i = i+1;
 
-            if (i == 20){
+            if (i == 21){
 
                 return false;
 
