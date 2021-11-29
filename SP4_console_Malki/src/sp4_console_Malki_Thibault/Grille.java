@@ -53,7 +53,7 @@ public class Grille {
       
       
   public boolean celluleOccupee(int ligne, int colonne){
-        if (CellulesJeu[ligne][colonne] != null){
+        if (CellulesJeu[ligne][colonne].jetonCourant != null){
             return true ;
         }
         else {
@@ -314,14 +314,15 @@ public boolean placerTrouNoir(int ligne, int colonne){
 
     public boolean ajouterJetonDansColonne(Jeton jetonJoueur, int colonne){
         int i = 0;
-        while (CellulesJeu[i][colonne] == null){
+        while (celluleOccupee(i,colonne) == false){
                 i +=1;
-                if (i > 6) {
-                    return false;
+                if (i > 5) {
+                    break ;
                 }
             }
         CellulesJeu[i][colonne].affecterJeton(jetonJoueur);
             return true;
+        
     }
 
      public void afficherGrilleSurConsole(){
