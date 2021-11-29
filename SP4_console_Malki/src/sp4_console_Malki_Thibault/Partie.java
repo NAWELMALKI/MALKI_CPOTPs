@@ -43,6 +43,7 @@ public class Partie {
         for (int i = 0; i < 21; i++) {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
+            System.out.println(i);
         }
         ListeJoueurs[0].nombreJetonsRestants = 21;
         ListeJoueurs[1].nombreJetonsRestants = 21;
@@ -206,7 +207,7 @@ public class Partie {
                 
                 // le jeton a pu etre ajouter dans la colonne
                 
-                while (grilleJeu.CellulesJeu[i][colonne] == null){
+                while (grilleJeu.CellulesJeu[i][colonne].recupererJeton() != null && grilleJeu.CellulesJeu[i][colonne].jetonCourant.lireCouleur() != joueurCourant.Couleur){
                 i +=1;
                 }
                 // i = indice de la premiere case dans laquelle on a mis le jeton.
