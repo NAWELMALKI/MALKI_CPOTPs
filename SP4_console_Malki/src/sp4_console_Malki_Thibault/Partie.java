@@ -44,6 +44,8 @@ public class Partie {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
         }
+        ListeJoueurs[0].nombreJetonsRestants = 21;
+        ListeJoueurs[1].nombreJetonsRestants = 21;
         //System.out.println(joueurCourant.nombreJetonsRestants);
 
         //PLACEMENT des trous noirs et désintégrateurs, avant que les joueurs ne commencent à jouer:  
@@ -166,7 +168,7 @@ public class Partie {
          // PLACER COLONNE :
                 if (coup == 1){
                 System.out.println("Dans quelle colonne voulez-vous placer votre jeton ?");
-                colonne = sc.nextInt(); 
+                colonne = sc.nextInt() -1; 
 
                 // tant que l'utilisateur ne rentre pas une bonne colonne
                 if (colonne>6){
@@ -200,7 +202,8 @@ public class Partie {
                 joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
                 joueurCourant.nombreJetonsRestants--;  
                 
-                grilleJeu.ajouterJetonDansColonne(j, colonne+1);
+                grilleJeu.ajouterJetonDansColonne(j, colonne);
+                
                 // le jeton a pu etre ajouter dans la colonne
                 
                 while (grilleJeu.CellulesJeu[i][colonne] == null){
