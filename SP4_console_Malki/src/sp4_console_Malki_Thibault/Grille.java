@@ -86,6 +86,7 @@ public boolean colonneRemplie(int colonne){
             String CouleurCase = lireCouleurDuJeton(i,j);
                 if (CouleurCase == CouleurGagnante){ // case = couleur du joueur
                     int p =j;
+                    compteur = 0;
                     while (CellulesJeu[i][p].lireCouleurDuJeton()== CouleurGagnante){
                         compteur += 1;
                         p +=1;
@@ -120,7 +121,7 @@ public boolean colonneRemplie(int colonne){
                 if (CouleurCase == CouleurGagnante){ // case = couleur du joueur
 
                     int p =i;
-
+                    compteur = 0;    
                     while (CellulesJeu[p][j].lireCouleurDuJeton()== CouleurGagnante){
 
                         compteur += 1;
@@ -194,7 +195,7 @@ public boolean colonneRemplie(int colonne){
                 if (CouleurCase == CouleurGagnante){ // case = couleur du joueur
                     int p =i;
                     int n = j;
-
+                    compteur = 0;
                     while (CellulesJeu[p][n].lireCouleurDuJeton()== CouleurGagnante){
 
                         compteur += 1;

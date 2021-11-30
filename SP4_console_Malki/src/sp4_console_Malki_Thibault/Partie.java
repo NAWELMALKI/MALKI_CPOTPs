@@ -177,7 +177,7 @@ public class Partie {
                 }
 
                 // tant que l'utilisateur choisis une colonne remplie on lui affcihe un message d'erreur.
-                if (grilleJeu.ajouterJetonDansColonne(j, colonne) == false){
+                if (grilleJeu.colonneRemplie(colonne) == false){
                     System.out.println("ERREUR. Colonne remplie.");
                    
                 }
