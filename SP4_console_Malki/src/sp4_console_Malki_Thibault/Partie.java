@@ -183,7 +183,7 @@ public class Partie {
                 }
                 
                 else {
-                    CoupValide = true;
+                    CoupValide = true; //grillejeu si les jeotns sont au bon endroit
                 }   
               }
             }
@@ -203,15 +203,15 @@ public class Partie {
                 joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
                 joueurCourant.nombreJetonsRestants--;  
                 
-                grilleJeu.ajouterJetonDansColonne(j, colonne);
-                
+              
                 // le jeton a pu etre ajouter dans la colonne
-                
-                while (grilleJeu.CellulesJeu[i][colonne].recupererJeton() != null && grilleJeu.CellulesJeu[i][colonne].jetonCourant.lireCouleur() != joueurCourant.Couleur){
+                i=0;
+                while (grilleJeu.CellulesJeu[i][colonne].recupererJeton() != null){
                 i +=1;
                 }
                 // i = indice de la premiere case dans laquelle on a mis le jeton.
-  
+                grilleJeu.ajouterJetonDansColonne(j, colonne);
+              
             // CAS 1 : Le joueur place son jeton sur un désintégrateur ;
                 if (grilleJeu.CellulesJeu[i][colonne].presenceDesintegrateur()){
                     joueurCourant.nombreDesintegrateurs =+1 ;
