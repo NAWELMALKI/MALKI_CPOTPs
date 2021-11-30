@@ -24,24 +24,18 @@ public class Joueur {
     }
   
   public void affecterCouleur(String couleurjoueur){
-        Couleur = couleurjoueur ;
-        
+        Couleur = couleurjoueur ; // on affecte a la variable Couleur  la couleur que on lui donne   
     } 
  
   public boolean ajouterJeton (Jeton jetonJ){
 
         int i =0;
 
-        while (ListeJetons[i] != null){
-
+        while (ListeJetons[i] != null){ // tant que la liste est pleine
             i = i+1;
-
             if (i == 21){
-
                 return false;
-
             }
-
         }
 
         ListeJetons[i] = jetonJ ;
@@ -53,20 +47,22 @@ public class Joueur {
     }
 
     
-    
     public void obtenirDesintegrateur(){
             nombreDesintegrateurs ++ ;
     }
+    // on augmente le nombre de desintegrateur
         
     public  boolean utiliserDesintegrateur(){ 
-            if(nombreDesintegrateurs == 0){
-                return false ;
-            }
-            
+            if(nombreDesintegrateurs == 0){ // si il n'y a plus de desintegrateur ça renvoie false donc
+                return false ;              // on peut plus utiliser de desintegrateur car il n'y en a plus
+                
+            } 
             else{ 
                 nombreDesintegrateurs -- ; 
                 return true;
-            }
+            }  
+            // si il reste des desintegrateur,
+            // on decremente le nombre de desintegrateur dans la liste.
         
     
         
