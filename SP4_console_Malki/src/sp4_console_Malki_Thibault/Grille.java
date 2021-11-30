@@ -234,24 +234,19 @@ public boolean colonneRemplie(int colonne){
 
  
      public void tasserGrille(int colonne){
-
-        for (int i = 0; i < 6; i++ ){
-
-            if (CellulesJeu[i][colonne].jetonCourant == null){            
-
-                CellulesJeu[i][colonne].jetonCourant = CellulesJeu[i+1][colonne].jetonCourant ;
-
-                if (i+1 == 5){
-
-                    CellulesJeu[i+1][colonne].jetonCourant = null;
-
+         for (int i = 0; i < 6; i++ ){
+            if (CellulesJeu[i][colonne].jetonCourant == null){         
+                for (int p = i; p<5; p++){
+                    CellulesJeu[p][colonne].jetonCourant = CellulesJeu[p+1][colonne].jetonCourant ;
+                    if (p+1 == 5){
+                        CellulesJeu[p+1][colonne].jetonCourant = null;
+                    }
                 }
-
             }
-
         }
-
      }
+        
+         
     public boolean supprimerJeton(int ligne,int colonne){
 
                     if (CellulesJeu[ligne][colonne]== null){
@@ -315,9 +310,9 @@ public boolean placerTrouNoir(int ligne, int colonne){
              System.out.println();
              
              for(int j=0 ; j<7 ; j++ ){
-                if( CellulesJeu[i][j].jetonCourant != null){
+                if( CellulesJeu[i][j].jetonCourant != null){ // [i]=lignes : [j]=colonnes
                      if( CellulesJeu[i][j].lireCouleurDuJeton() =="Rouge"){
-                         System.out.print("R");
+                         //System.out.print("R(x:"+i+"y:"+j+")");
                      }
                      else if( CellulesJeu[i][j].lireCouleurDuJeton() =="Jaune"){
                          System.out.print("J");
@@ -326,11 +321,11 @@ public boolean placerTrouNoir(int ligne, int colonne){
                 
                 
                 else if ( CellulesJeu[i][j].trouNoir == true){
-                         System.out.print("#") ;
+                         System.out.print("@") ; //@ ressemble le plus a un trou noir
                  }
                 
                 else if ( CellulesJeu[i][j].desintegrateur == true){
-                          System.out.print("@") ;
+                          System.out.print("#") ;
                  }
 
                 
