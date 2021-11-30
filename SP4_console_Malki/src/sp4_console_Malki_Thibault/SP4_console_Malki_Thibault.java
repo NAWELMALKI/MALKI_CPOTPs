@@ -40,7 +40,6 @@ public class SP4_console_Malki_Thibault {
        partie.debuterPartie();
         
 
-       
         
     }
     
