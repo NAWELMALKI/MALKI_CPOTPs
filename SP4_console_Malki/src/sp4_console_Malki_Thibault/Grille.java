@@ -80,26 +80,15 @@ public boolean colonneRemplie(int colonne){
 
         String CouleurGagnante = Jgagnant.Couleur;
 
-       
-
         //cas 1 : LIGNE jeton dans l'aéra colonne = [0;3]
-
         for (int i=0; i<6; i++) { //i = ligne
-
             for (int j=0; j<4; j++){  //j = colonne
-
             String CouleurCase = lireCouleurDuJeton(i,j);
-
                 if (CouleurCase == CouleurGagnante){ // case = couleur du joueur
-
                     int p =j;
-
                     while (CellulesJeu[i][p].lireCouleurDuJeton()== CouleurGagnante){
-
                         compteur += 1;
-
                         p +=1;
-
                         if (compteur == 4){
 
                             return true;
@@ -171,19 +160,13 @@ public boolean colonneRemplie(int colonne){
                     int p =i;
 
                     int n = j;
-
+                    compteur=0;
                     while (CellulesJeu[p][n].lireCouleurDuJeton()== CouleurGagnante){
-
                         compteur += 1;
-
                         p +=1;
-
                         n +=1;
-
                         if (compteur == 4){
-
                             return true;
-
                         }
 
                        
@@ -312,7 +295,7 @@ public boolean placerTrouNoir(int ligne, int colonne){
 
     public boolean ajouterJetonDansColonne(Jeton jetonJoueur, int colonne){
         int i = 0;
-        while (celluleOccupee(i,colonne) == false){
+        while (CellulesJeu[i][colonne].jetonCourant != null){
                 i +=1;
                 if (i > 5) {
                     i = 5;
@@ -327,7 +310,7 @@ public boolean placerTrouNoir(int ligne, int colonne){
     }
 
      public void afficherGrilleSurConsole(){
-         for( int i=0; i<6 ; i++){
+         for( int i=5; i>=0 ; i--){
              System.out.println();
              
              for(int j=0 ; j<7 ; j++ ){
