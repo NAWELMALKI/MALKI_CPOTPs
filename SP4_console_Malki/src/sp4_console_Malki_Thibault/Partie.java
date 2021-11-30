@@ -33,17 +33,13 @@ public class Partie {
         while (grilleJeu != null) {
             grilleJeu.viderGrille();
         }
-
-        System.out.println("grilleJeu APRES " + grilleJeu); 
         
         grilleJeu = new Grille();
-        System.out.println("etreRemplie : " + grilleJeu.etreRemplie());
 
         //on attribut 21 jetons d'une couleur à chaque joueur:
         for (int i = 0; i < 21; i++) {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
-            System.out.println(i);
         }
         ListeJoueurs[0].nombreJetonsRestants = 21;
         ListeJoueurs[1].nombreJetonsRestants = 21;
