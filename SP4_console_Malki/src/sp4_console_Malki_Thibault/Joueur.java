@@ -35,13 +35,9 @@ public class Joueur {
         while (ListeJetons[i] != null){ // tant que la liste est pleine 
 
             i = i+1;
-
             if (i == 21){
-
                 return false;
-
             }
-
         }
 
         ListeJetons[i] = jetonJ ;
@@ -53,11 +49,11 @@ public class Joueur {
     }
 
     
-    
     public void obtenirDesintegrateur(){
             nombreDesintegrateurs ++ ;
             // on augmente le nombre de desintegrateur 
     }
+    // on augmente le nombre de desintegrateur
         
     public  boolean utiliserDesintegrateur(){ 
             if(nombreDesintegrateurs == 0){

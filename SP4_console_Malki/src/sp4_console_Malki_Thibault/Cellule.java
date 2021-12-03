@@ -32,7 +32,8 @@ public class Cellule {
         else {
              return false;  
                     }
-
+        // si jetonCourant est null on lui affecte une valeur
+        // renvoie vraie
     }
     
     public String lireCouleurDuJeton(){
@@ -65,9 +66,9 @@ public class Cellule {
         }
     }   
     
-    public    boolean  presenceTrouNoir(){
+    public  boolean  presenceTrouNoir(){
         if(trouNoir== true){
-            return true ;
+            return true ; // si un troue noir est present ça retourne vraie
         }
         else{
             return false ;
@@ -76,7 +77,7 @@ public class Cellule {
    
     public boolean presenceDesintegrateur(){
         if(desintegrateur==true){
-            return true ;
+            return true ; // si un desintegrateur est present ça retourne vraie
         }
         else{
             return false ;
@@ -93,7 +94,8 @@ public class Cellule {
              desintegrateur=true ;
              return true ;
          }
-             
+         // si le desintegrateur est deja present dans la cellule ça retourne false
+         // sinon ça retourne vraie si aucun desintegrateur est present    
      }
     
     public boolean placerTrouNoir(){
@@ -106,7 +108,8 @@ public class Cellule {
              trouNoir=true ;
              return true ;
          }
-        
+    // si le trou noir est deja present dans la cellule ça retourne false
+    // sinon ça retourne vraie si aucun trou noir est present    
     }     
      
      
@@ -120,6 +123,8 @@ public class Cellule {
          else{
              return false ;
          }
+         // si un desintegrateur est present, on "supprime" le desintegrateur
+         // et on renvoie true 
      }
     public boolean activerTrouNoir(){
          if(trouNoir==true){
@@ -132,5 +137,5 @@ public class Cellule {
              return false;
          }
      }
-     
+     // si un trou noir est present ça supprime le jetoncourant et le trou noir 
 }
