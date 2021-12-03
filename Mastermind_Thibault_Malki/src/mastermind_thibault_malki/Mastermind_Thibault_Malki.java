@@ -16,6 +16,10 @@ public class Mastermind_Thibault_Malki {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+        
+        
     }
     
 }
