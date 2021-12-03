@@ -21,10 +21,10 @@ public class Jeton {
     // methodes :
     
      public Jeton (String a){
-      Couleur = a;
+      Couleur = a;   // attribue a la couleur une donnee
       // 
     }
     public String lireCouleur(){
-       return Couleur ;  
+       return Couleur ;  // renvoie la couleur 
      }
 }

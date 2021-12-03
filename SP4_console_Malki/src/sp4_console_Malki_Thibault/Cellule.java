@@ -18,7 +18,7 @@ public class Cellule {
     boolean desintegrateur ;
 
     Cellule(){
-       jetonCourant= null; 
+       jetonCourant= null; // jeton courant est initialisé null
     }
        
    
@@ -26,8 +26,8 @@ public class Cellule {
     public boolean affecterJeton(Jeton entree) {
 
         if (jetonCourant == null) {
-            jetonCourant = entree;
-            return true;
+            jetonCourant = entree; // si jetonCourant est null on lui affecte une valeur 
+            return true;    // renvoie vraie
         }
         else {
              return false;  
@@ -37,11 +37,12 @@ public class Cellule {
     
     public String lireCouleurDuJeton(){
         if (jetonCourant == null){
-            return "vide";
+            return "vide"; // permet de lire la couleur du jeton 
+            // si celle ci il n'y a pas de jeton, on renvoie vide
             
         }
         else {
-            return jetonCourant.Couleur;
+            return jetonCourant.Couleur; // si un jeton est present , on renvoie sa couleur
         }           
         // return null;
     }
@@ -51,15 +52,16 @@ public class Cellule {
     }
     
    public boolean  supprimerJeton(){
-        
+        // la methode permet de supprimer les jeton, elle renvoie 
+        // vrai si 
         
         if (jetonCourant== null){
-            return false ;
+            return false ; // 
         }
         
         else{
-            jetonCourant= null;
-            return false ;
+            
+            return true ;
         }
     }   
     

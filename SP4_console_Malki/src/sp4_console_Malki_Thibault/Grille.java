@@ -235,7 +235,7 @@ public boolean colonneRemplie(int colonne){
  
      public void tasserGrille(int colonne){
 
-        for (int i = 0; i < 6; i++ ){
+        for (int i = 0; i < 5; i++ ){
 
             if (CellulesJeu[i][colonne].jetonCourant == null){            
 
