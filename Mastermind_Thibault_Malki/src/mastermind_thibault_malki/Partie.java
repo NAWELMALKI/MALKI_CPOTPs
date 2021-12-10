@@ -11,7 +11,7 @@ import java.util.Random ;
  */
 public class Partie {
     Pions [] CombiSecret = new Pions [4] ;
-    Grille PlateauJeu ;
+    plateau PlateauJeu ;
     //Pions piontJoueur = new Pions();
     String couleurPion ;
 
