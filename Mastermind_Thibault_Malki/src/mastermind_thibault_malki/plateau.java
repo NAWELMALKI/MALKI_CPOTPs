@@ -34,13 +34,23 @@ public class plateau {
     
     //on verifie que les colonnes (i.e. les cases) de la lignes soient remplies 
     public boolean EtreRemplie(int ligne){
-            for (int i=0; i<4; i++)    // on a 4 case par ligne
+           
+        for (int i=0; i<4; i++)    // on a 4 case par ligne
                 if (PionPlateau[ligne][i] == null){
                     return false;
                 }
         return true;
     }
     
+    
+    public boolean EtreRemplieTotal(int ligne){
+           
+        for (int i=0; i<4; i++)    // on a 4 case par ligne
+                if (PionPlateau[ligne][i] == null){
+                    return false;
+                }
+        return true;
+    }
     public void AfficherGrillesurConsole(){
          for( int i=11; i>=0 ; i--){
              System.out.println();

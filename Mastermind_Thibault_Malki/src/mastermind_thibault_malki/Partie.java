@@ -5,22 +5,31 @@
  */
 package mastermind_thibault_malki;
 import java.util.Random ;
+import java.util.Scanner;
 /**
  *
  * @author saidm
  */
 public class Partie {
     Pions [] CombiSecret = new Pions [4];
-    plateau PlateauJeu ;
+    plateau PlateauJeu = null ;
     //Pions piontJoueur = new Pions();
     String couleurPion ;
-
-    public Partie (Joueur j1){
+    // Joueur j1 ;
+    public Partie (){
         
     }
    
     
     public void InitialiserPartie(){
+        
+        while (PlateauJeu != null) {   // On vide la grille si elle existait déjà
+            PlateauJeu.ViderGrille();
+        }
+       
+        PlateauJeu = new plateau();
+        
+        
         Random rand = new Random();
         for (int p=0; p<5 ; p++){    
             int i = rand.nextInt(4) ;
@@ -51,6 +60,22 @@ public class Partie {
     }
     
     public void DebuterPartie (){
+        
+        while ((PlateauJeu.EtreRemplie() == false) && (EtreGagnant()!= true)) {
+            Scanner sc = new Scanner(System.in);
+            PlateauJeu.AfficherGrillesurConsole();
+            int coup= 0;
+            System.out.println("\nQue voulez vous jouer ? (1)Un Pion Violet ; (2)Un Pion Vert ; (3) Un Pion Rouge ; (4) Un Pion Jaune ; (5) Un Pion Bleu");
+            coup = sc.nextInt();
+            
+            if (coup > 5 || coup < 1){ // le coup doit correspondre à 1, 2 , 3,4,5.
+                    System.out.println("ERREUR : Veuillez saisir un nombre entre 1 et 5.");
+                }
+            
+            if (coup == 1){
+                
+            }
+        }
         
     }
     
