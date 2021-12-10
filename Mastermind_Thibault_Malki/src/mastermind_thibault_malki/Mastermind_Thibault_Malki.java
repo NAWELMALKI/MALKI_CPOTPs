@@ -18,9 +18,11 @@ public class Mastermind_Thibault_Malki {
         // TODO code application logic here
        Joueur j1 = new Joueur ("Joueur 1") ;
     
-      
-       Partie partie  = new Partie();
-       partie.InitialiserPartie();
+       plateau G = new plateau();
+       G.AfficherGrillesurConsole();
+       
+       //Partie partie  = new Partie();
+       //partie.InitialiserPartie();
         
     }
     
