@@ -16,8 +16,8 @@ public class plateau {
         
     }
     
-    public void LireCouleurPion(int case){
-        return PionPlateau[ligne][colonne].lireCouleur();
+    public String LireCouleurPion(int ligne, int colonne){
+        return PionPlateau[ligne][colonne].LireCouleur() ;
     }
     
     public void ViderGrille(){
