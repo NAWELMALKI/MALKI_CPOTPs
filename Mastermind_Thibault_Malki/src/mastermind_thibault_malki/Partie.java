@@ -12,7 +12,8 @@ import java.util.Scanner;
  */
 public class Partie {
     Pions [] CombiSecret = new Pions [4];
-    plateau PlateauJeu = null ;
+    
+    plateau PlateauJeu ;
     //Pions piontJoueur = new Pions();
     String couleurPion ;
     // Joueur j1 ;
@@ -89,5 +90,39 @@ public class Partie {
             }    
         }
         return false;
+    }
+    
+    public int[] AnalyseCombi(int ligne){
+        int BienPlace =0;
+        int PasBP =0;
+        boolean []check = new boolean[4];
+        // check = tableau de false
+        for (int i=0; i<4; i++){
+            check[i] = false;
+        }
+        
+        for (int i=0; i<4; i++){
+            if (PlateauJeu.PionPlateau[ligne][i].Couleur == CombiSecret[i].Couleur){
+                if (check[i] ==  false){
+                        check[i] = true;
+                        BienPlace +=1;
+                }
+                PlateauJeu.GrilleAide[0] = BienPlace ;
+            }
+        }
+        
+        for (int j=0; j<4; j++){
+            for(int p = 0; p<4; p++){
+                if ((PlateauJeu.PionPlateau[ligne][j].Couleur == CombiSecret[p].Couleur)&&(PlateauJeu.PionPlateau[ligne][p].Couleur != CombiSecret[p].Couleur)){
+                    if (check[p] ==  false){
+                        check[p] = true;
+                        PasBP +=1;
+                    }
+                    PlateauJeu.GrilleAide[1] = PasBP ;
+                }
+            }         
+        }
+        
+        return PlateauJeu.GrilleAide;
     }
 }

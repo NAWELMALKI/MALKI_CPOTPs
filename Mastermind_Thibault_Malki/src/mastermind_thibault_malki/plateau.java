@@ -9,7 +9,7 @@ package mastermind_thibault_malki;
  * @author paola
  */
 public class plateau {
-    Pions[][] GrilleAide = new Pions[12][2];
+    int[] GrilleAide = new int[2];
     Pions[][] PionPlateau = new Pions[12][4];
     
     public plateau() {
