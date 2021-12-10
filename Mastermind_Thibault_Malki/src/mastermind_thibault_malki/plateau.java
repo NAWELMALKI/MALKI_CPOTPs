@@ -11,9 +11,9 @@ package mastermind_thibault_malki;
 public class plateau {
     Pions[][] PionPlateau = new Pions[12][4];
     Pions[][] GrilleAide = new Pions[12][2];
-    
+    //Pions PionsCourant ;
     public plateau() {
-        
+        //PionsCourant = null ;
     }
     
     public String LireCouleurPion(int ligne, int colonne){
@@ -41,21 +41,15 @@ public class plateau {
         
     }
     
-    public boolean AjouterJetonLigne(int colonne){
-        int i = 0;
-        while (PionPlateau[i].EtreRemplie(i) != false){
-            
-        }
-        while (PionPlateau[i][colonne].jetonCourant != null){
-                i +=1;
-                if (i > 5) {
-                    i = 5;
-                    break ;
-                }
+    public boolean AjouterJetonLigne(int ligne, int colonne, Pions PionsCourant){
+        if (PionPlateau[ligne][colonne]== null){
+               PionPlateau[ligne][colonne]= PionsCourant ;          
+                       return true;
             }
+        else {
+            return false ;
+        }
     }
     
-    public boolean EtreGagnant(Joueur){
-        
-    }
+
 }
