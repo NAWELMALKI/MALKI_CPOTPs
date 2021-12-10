@@ -9,11 +9,15 @@ package mastermind_thibault_malki;
  * @author paola
  */
 public class plateau {
-    Pions[][] PionPlateau = new Pions[12][4];
     Pions[][] GrilleAide = new Pions[12][2];
+    Pions[][] PionPlateau = new Pions[12][4];
     
     public plateau() {
-        
+        for (int i=0; i<12 ; i++){
+           for( int j=0 ; j<4 ; j++){
+               PionPlateau[i][j]= new Pions("vide");
+           }
+       }
     }
     
     public String LireCouleurPion(int ligne, int colonne){
@@ -38,7 +42,7 @@ public class plateau {
     }
     
     public void AfficherGrillesurConsole(){
-         for( int i=5; i>=0 ; i--){
+         for( int i=11; i>=0 ; i--){
              System.out.println();
              
              for(int j=0 ; j<4 ; j++ ){
@@ -57,7 +61,7 @@ public class plateau {
                      else if( PionPlateau[i][j].LireCouleur() =="Bleu"){
                          System.out.print(" B ");
                      }
-                    else if( PionPlateau[i][j].LireCouleur() == null){
+                    else if( PionPlateau[i][j].LireCouleur() == "vide"){
                         System.out.print(" - ");
                      }
 
@@ -70,9 +74,6 @@ public class plateau {
     
     public boolean AjouterJetonLigne(int colonne){
         int i = 0;
-        while (PionPlateau[i].EtreRemplie(i) != false){
-            
-        }
         while (PionPlateau[i][colonne].jetonCourant != null){
                 i +=1;
                 if (i > 5) {
@@ -82,7 +83,5 @@ public class plateau {
             }
     }
     
-    public boolean EtreGagnant(Joueur){
-        
-    }
+    
 }
