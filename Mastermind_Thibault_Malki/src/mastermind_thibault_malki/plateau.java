@@ -9,15 +9,15 @@ package mastermind_thibault_malki;
  * @author paola
  */
 public class plateau {
-    pion[][] PionPlateau = new pion[12][4];
-    pion[][] GrilleAide = new pion[12][2];
+    Pions[][] PionPlateau = new Pions[12][4];
+    Pions[][] GrilleAide = new Pions[12][2];
     
     public plateau() {
         
     }
     
-    public void LireCouleurPion(int case){
-        return PionPlateau[ligne][colonne].lireCouleur();
+    public String LireCouleurPion(int ligne, int colonne){
+        return PionPlateau[ligne][colonne].LireCouleur() ;
     }
     
     public void ViderGrille(){
