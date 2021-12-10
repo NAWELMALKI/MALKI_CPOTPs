@@ -12,26 +12,42 @@ import java.util.Random ;
 public class Partie {
     Pions [] CombiSecret = new Pions [4] ;
     Grille PlateauJeu ;
+    //Pions piontJoueur = new Pions();
+    String couleurPion ;
 
-    public Partie (){
+    public Partie (Joueur j1){
         
     }
-    public int[][] AnlyseCombi(colonnes,CombiSecret[] ){
-        
-    }
+   
     
     public void InitialiserPartie(){
         Random rand = new Random();
         for (int p=0; p<5 ; p++){    
-            int i = rand.nextInt(5) ;
+            int i = rand.nextInt(4) ;
 
             if (i==0){
-                String couleur = "Rouge"
+                couleurPion = "Rouge" ;
             }
                  
             if (i==1){
-                String couleur = "Violet"
+                couleurPion = "Violet" ;
             }
+            
+            if (i==2){
+                couleurPion = "Bleu" ;
+            }
+            
+            if (i==3){
+                
+                couleurPion = "Vert" ;
+            }
+            
+            if (i==4){
+                 couleurPion = "Jaune" ;
+            }
+            
+            CombiSecret[p].Couleur = couleurPion;
+        }    
     }
     
     public void DebuterPartie (){
