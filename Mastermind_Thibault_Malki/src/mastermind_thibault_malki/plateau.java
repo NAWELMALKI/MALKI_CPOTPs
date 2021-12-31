@@ -43,13 +43,15 @@ public class plateau {
     }
     
     
-    public boolean EtreRemplieTotal(int ligne){
-           
+    public boolean EtreRemplieTotal(){
+        for (int j =0; j < 12; j++){   
         for (int i=0; i<4; i++)    // on a 4 case par ligne
-                if (PionPlateau[ligne][i] == null){
+                if (PionPlateau[j][i] == null){
                     return false;
                 }
+        }
         return true;
+    
     }
     public void AfficherGrillesurConsole(){
          for( int i=11; i>=0 ; i--){

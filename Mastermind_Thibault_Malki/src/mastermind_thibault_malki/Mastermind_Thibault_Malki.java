@@ -21,9 +21,9 @@ public class Mastermind_Thibault_Malki {
        plateau G = new plateau();
        G.AfficherGrillesurConsole();
        
-       //Partie partie  = new Partie();
-       //partie.InitialiserPartie();
-        
+       Partie partie  = new Partie();
+       partie.InitialiserPartie();
+       partie.DebuterPartie();
     }
     
 }

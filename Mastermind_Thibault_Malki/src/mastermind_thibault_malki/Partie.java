@@ -11,8 +11,8 @@ import java.util.Scanner;
  * @author saidm
  */
 public class Partie {
-    Pions [] CombiSecret = new Pions [4];
-    
+    // Pions [] CombiSecret = new Pions [4];
+    String[]CombiSecret = new String[5];
     plateau PlateauJeu ;
     //Pions piontJoueur = new Pions();
     String couleurPion ;
@@ -56,34 +56,56 @@ public class Partie {
                  couleurPion = "Jaune" ;
             }
             
-            CombiSecret[p].Couleur = couleurPion;
+            CombiSecret[p]= couleurPion;
         }    
     }
     
     public void DebuterPartie (){
+        int ligne =0 ;
         
-        while ((PlateauJeu.EtreRemplie() == false) && (EtreGagnant()!= true)) {
-            Scanner sc = new Scanner(System.in);
-            PlateauJeu.AfficherGrillesurConsole();
-            int coup= 0;
-            System.out.println("\nQue voulez vous jouer ? (1)Un Pion Violet ; (2)Un Pion Vert ; (3) Un Pion Rouge ; (4) Un Pion Jaune ; (5) Un Pion Bleu");
-            coup = sc.nextInt();
-            
-            if (coup > 5 || coup < 1){ // le coup doit correspondre à 1, 2 , 3,4,5.
-                    System.out.println("ERREUR : Veuillez saisir un nombre entre 1 et 5.");
-                }
-            
-            if (coup == 1){
-                
-            }
-        }
+        while ( (EtreGagnant(ligne)==false) ){
+        PlateauJeu.AfficherGrillesurConsole();
         
-    }
+        Scanner sc = new Scanner(System.in);  
+        String[]CouleurJoueur = new String[5];
+
+        
+        CouleurJoueur[0] = "Violet";
+        CouleurJoueur[1] = "Vert";
+        CouleurJoueur[2] = "Rouge";
+        CouleurJoueur[3] = "Jaune";
+        CouleurJoueur[4] = "Bleu";
+        
+ 
+        
+        System.out.println("\n Que voulez vous jouer ? (0)Un Pion Violet ; (1)Un Pion Vert ; (2) Un Pion Rouge ; (3) Un Pion Jaune ; (4) Un Pion Bleu");
+        for (int i = 0; i < 4; i++) {
+            int cpt = i + 1;
+            System.out.println("Que voulez-vous jouer pour le numero " + cpt + ": ");
+            
+            
+            int couleurchoisi = sc.nextInt();
+            PlateauJeu.PionPlateau[ligne][i].Couleur = CouleurJoueur[couleurchoisi];
+            AnalyseCombi(ligne);
+            
+   
+        }   
+         ligne = ligne +1 ;   
+
+        
     
+    }
+      // if(PlateauJeu.EtreRemplieTotal(ligne)== true){
+      //     System.out.println("Vous avez perdu !!!");
+      // }
+       if(EtreGagnant(ligne)== true){
+           System.out.println("Vous avez pERDUE !!!");
+       }
+    }
     public boolean EtreGagnant(int ligne){
         //si la 4 case sont identiques à celle de la combinaison mistyère alors c'est gagné !
         int j = 0;
-        while (PlateauJeu.PionPlateau[ligne][j].Couleur == CombiSecret[j].Couleur){
+        while (PlateauJeu.PionPlateau[ligne][j].Couleur == CombiSecret[j]){
             j +=1;
             if (j==4){
                 return true;
@@ -102,7 +124,7 @@ public class Partie {
         }
         
         for (int i=0; i<4; i++){
-            if (PlateauJeu.PionPlateau[ligne][i].Couleur == CombiSecret[i].Couleur){
+            if (PlateauJeu.PionPlateau[ligne][i].Couleur == CombiSecret[i]){
                 if (check[i] ==  false){
                         check[i] = true;
                         BienPlace +=1;
@@ -113,7 +135,7 @@ public class Partie {
         
         for (int j=0; j<4; j++){
             for(int p = 0; p<4; p++){
-                if ((PlateauJeu.PionPlateau[ligne][j].Couleur == CombiSecret[p].Couleur)&&(PlateauJeu.PionPlateau[ligne][p].Couleur != CombiSecret[p].Couleur)){
+                if ((PlateauJeu.PionPlateau[ligne][j].Couleur == CombiSecret[p])&&(PlateauJeu.PionPlateau[ligne][p].Couleur != CombiSecret[p])){
                     if (check[p] ==  false){
                         check[p] = true;
                         PasBP +=1;
