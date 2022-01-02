@@ -43,7 +43,7 @@ public class plateau {
     }
     
     
-    public boolean EtreRemplieTotal(){
+    public boolean EtreRemplieTotal(){ // on verifie si le plateau est rempli ou non
         for (int j =0; j < 12; j++){   
         for (int i=0; i<4; i++)    // on a 4 case par ligne
                 if (PionPlateau[j][i] == null){
@@ -54,7 +54,7 @@ public class plateau {
     
     }
     public void AfficherGrillesurConsole(){
-         for( int i=11; i>=0 ; i--){
+         for( int i=11; i>=0 ; i--){ // la methode permet d'afficher sur la console la grille
              System.out.println();
              
              for(int j=0 ; j<4 ; j++ ){
@@ -85,7 +85,7 @@ public class plateau {
     }
     
     public boolean AjouterJetonLigne(int ligne, int colonne, Pions PionsCourant){
-        if (PionPlateau[ligne][colonne]== null){
+        if (PionPlateau[ligne][colonne]== null){  // On ajoute un jeton à la ligne 
                PionPlateau[ligne][colonne]= PionsCourant ;          
                        return true;
             }
